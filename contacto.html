@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Tienda de Flores</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        Tienda de Flores
+    </header>
+    <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html" onclick="toggleCartModal()">Carrito</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div id="cart">🛒 Carrito (<span id="cart-count">0</span>)</div>
+    <div class="contact-container">
+        <h2>Contacto</h2>
+        <div class="contact-info-container">
+            <div class="contact-info">
+                📞 <a href="tel:+1234567890">+123 456 7890</a>
+            </div>
+            <div class="contact-info">
+                📧 <a href="mailto:contacto@flores.com">contacto@flores.com</a>
+            </div>
+            <div class="contact-info">
+                📍 <a href="https://www.google.com/maps?q=Calle+Falsa+123,+Ciudad+Jardín" target="_blank">Calle Falsa 123, Ciudad Jardín</a>
+            </div>
+        </div>
+        <div class="contact-form">
+            <h3>Envíanos un mensaje</h3>
+            <form action="send_email.php" method="POST">
+                <input type="text" name="name" placeholder="Tu Nombre" required>
+                <input type="email" name="email" placeholder="Tu Correo" required>
+                <textarea name="message" placeholder="Tu Mensaje" rows="5" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">📱</a>
+    <footer>
+        <p>Síguenos en nuestras redes sociales</p>
+        <p>Facebook | Instagram | Twitter</p>
+        <p>Ubicación: Calle Falsa 123, Ciudad Jardín</p>
+    </footer>
+</body>
+</html>

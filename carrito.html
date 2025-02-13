@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <header>Flores Hermosas</header>
+    </header>
+    
+    <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html">Carrito</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div id="cart">🛒 Carrito (<span id="cart-count">0</span>)</div>
+    <div class="cart-container">
+        <h2>Carrito de Compras</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Los productos se agregarán dinámicamente aquí -->
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <h3>Total: <span id="cart-total">$0.00</span></h3>
+            <button id="confirm-purchase">Confirmar Compra</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Flores Hermosas - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        const cartItems = [
+            { nombre: "Ramo de Rosas", precio: 20, cantidad: 1 },
+            { nombre: "Girasoles", precio: 15, cantidad: 2 }
+        ];
+        
+        function renderCart() {
+            const cartTable = document.getElementById("cart-items");
+            cartTable.innerHTML = "";
+            let total = 0;
+            
+            cartItems.forEach((item, index) => {
+                const row = document.createElement("tr");
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal;
+                
+                row.innerHTML = `
+                    <td>${item.nombre}</td>
+                    <td>$${item.precio.toFixed(2)}</td>
+                    <td>
+                        <button onclick="updateQuantity(${index}, -1)">-</button>
+                        ${item.cantidad}
+                        <button onclick="updateQuantity(${index}, 1)">+</button>
+                    </td>
+                    <td>$${subtotal.toFixed(2)}</td>
+                `;
+                cartTable.appendChild(row);
+            });
+            
+            document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
+        }
+        
+        function updateQuantity(index, change) {
+            cartItems[index].cantidad += change;
+            if (cartItems[index].cantidad < 1) cartItems[index].cantidad = 1;
+            renderCart();
+        }
+        
+        document.getElementById("confirm-purchase").addEventListener("click", () => {
+            window.location="pedido.html";
+        });
+        
+        renderCart();
+    </script>
+</body>
+</html>

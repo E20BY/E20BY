@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Flores</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        Tienda de Flores
+    </header>
+    <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html">Carrito</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="hero">Encuentra las flores perfectas para cada ocasión</div>
+    <div id="cart">🛒 Carrito (<span id="cart-count">0</span>)</div>
+    <main>
+        <div class="product-list">
+            <div class="product">
+                <img src="//robbinlegacy.com/cdn/shop/products/image_10d6ee69-66ff-4a34-a2ae-485da32bba22.jpg?v=1721684246&width=800" alt="Ramo de Rosas">
+                <h2>Ramo de Rosas</h2>
+                <p>$25</p>
+                <button onclick="addToCart(1, 'Ramo de Rosas', 25)">Añadir al carrito</button>
+            </div>
+            <div class="product">
+                <img src="//robbinlegacy.com/cdn/shop/products/image_10d6ee69-66ff-4a34-a2ae-485da32bba22.jpg?v=1721684246&width=800" alt="Tulipanes Elegantes">
+                <h2>Tulipanes Elegantes</h2>
+                <p>$30</p>
+                <button onclick="addToCart(2, 'Tulipanes Elegantes', 30)">Añadir al carrito</button>
+            </div>
+            <div class="product">
+                <img src="//robbinlegacy.com/cdn/shop/products/image_10d6ee69-66ff-4a34-a2ae-485da32bba22.jpg?v=1721684246&width=800" alt="Orquídeas de Lujo">
+                <h2>Orquídeas de Lujo</h2>
+                <p>$40</p>
+                <button onclick="addToCart(3, 'Orquídeas de Lujo', 40)">Añadir al carrito</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Síguenos en nuestras redes sociales</p>
+        <p>Facebook | Instagram | Twitter</p>
+        <p>Ubicación: Calle Falsa 123, Ciudad Jardín</p>
+    </footer>
+    <script>
+        let cartCount = 0;
+        function addToCart(id, name, price) {
+            cartCount++;
+            document.getElementById('cart-count').innerText = cartCount;
+            alert(`${name} añadido al carrito`);
+        }
+    </script>
+</body>
+</html>
+
