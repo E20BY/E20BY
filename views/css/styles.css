@@ -1,0 +1,2653 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FDE4E1;
+    color: #613318;
+}
+
+
+.menu {
+    display: flex;
+    justify-content: center;
+    background: #f490c6;
+    padding: 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.hero {
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    background: #f490c6;
+    color: white;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    min-height: 50px;
+}
+
+.hero span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero span.active {
+    opacity: 1;
+}
+
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+.filters select,
+.filters input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+.product p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.product button {
+    background: #ffb6c1;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+a{
+    color: white;
+}
+
+.product button:hover {
+    background: #f490c6;
+}
+
+.contact-container,
+.product-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-info-container,
+.product-info-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-info,
+.product-info {
+    font-size: 18px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info a,
+.product-info a {
+    color: #ff1493;
+    text-decoration: none;
+}
+
+.contact-info a:hover,
+.product-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-form,
+.product-filter {
+    background: white;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button,
+.product-filter input,
+.product-filter select,
+.product-filter button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form button,
+.product-filter button {
+    background: #D48447;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 95%;
+}
+
+.contact-form button:hover,
+.product-filter button:hover {
+    background: #B06A37;
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#cart {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-container h2 {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead {
+    background: #ff1493;
+    color: white;
+}
+
+thead th {
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-summary {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cart-summary span {
+    color: #ff1493;
+}
+
+button {
+    background: #ff1493;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #e0546d;
+}
+
+.contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+/* Contenedor del formulario (izquierda) */
+.pedido-container {
+    flex: 2;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario */
+.pedido-form {
+    display: flex;
+    flex-direction: column;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Contenedor que organiza los campos en dos columnas */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Permite que los elementos se ajusten en pantallas pequeñas */
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+    /* Evita que los inputs sean demasiado pequeños */
+}
+
+/* Estilo de etiquetas */
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilo de inputs */
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Contenedor del resumen del pedido */
+.resumen-container {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    max-width: 400px;
+}
+
+/* Botón */
+.pedido-button {
+    background: #ff1493;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.pedido-button:hover {
+    background: #e60073;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #f490c6;
+    color: white;
+    margin: 20px auto;
+    /* Centrar horizontalmente */
+    width: 80%;
+    /* Adaptable a diferentes pantallas */
+    max-width: 1000px;
+    /* Límite de ancho */
+    border-radius: 20px 0px 20px 0px;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 700px) {
+    footer {
+        width: 90%;
+        /* Se hace más pequeño en móviles */
+        max-width: 300px;
+        /* Límite de ancho */
+    }
+}
+
+
+/*////////////////*/
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FDE4E1;
+    color: #613318;
+}
+
+/* Estilos del header */
+
+
+header img {
+    height: 50px;
+}
+
+header span {
+    font-size: 22px;
+    color: white;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Estilos del menú */
+.menu {
+    display: flex;
+    justify-content: center;
+    background: #f490c6;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 10px;
+    font-size: 18px;
+}
+
+
+/* Filtros */
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px;
+}
+
+.filters select,
+.filters input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px;
+}
+
+/* Lista de productos */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Botones */
+button,
+.pedido-button {
+    background: #ff1493;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+button:hover,
+.pedido-button:hover {
+    background: #e0546d;
+}
+
+/* Formulario de contacto */
+.contact-form,
+.product-filter {
+    background: white;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button,
+.product-filter input,
+.product-filter select,
+.product-filter button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+thead {
+    background: #ff1493;
+    color: white;
+}
+
+thead th {
+    padding: 8px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilos Responsive */
+@media (max-width: 1200px) {
+    .menu {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 700px) {
+
+
+    .menu {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero {
+        font-size: 16px;
+        width: 90%;
+        /* Se hace más pequeño en móviles */
+        max-width: 300px;
+        /* Límite de ancho */
+    }
+
+    .product-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .menu a {
+        font-size: 16px;
+    }
+
+    .hero {
+        font-size: 14px;
+        width: 90%;
+        /* Se hace más pequeño en móviles */
+        max-width: 300px;
+        /* Límite de ancho */
+    }
+
+    .product-list {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    button,
+    .pedido-button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 250px) {
+    .menu {
+        display: block;
+        text-align: center;
+    }
+
+    .menu a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .hero {
+        font-size: 15px;
+        width: 90%;
+        /* Se hace más pequeño en móviles */
+        max-width: 300px;
+        /* Límite de ancho */
+    }
+
+    .filters select,
+    .filters input {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-container,
+.product-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Contenedores flexibles y adaptables */
+.contact-info-container,
+.product-info-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Tarjetas de información */
+.contact-info,
+.product-info {
+    font-size: 18px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 300px;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+/* Enlaces */
+.contact-info a,
+.product-info a {
+    color: #ff1493;
+    text-decoration: none;
+}
+
+.contact-info a:hover,
+.product-info a:hover {
+    text-decoration: underline;
+}
+
+/* Formularios */
+.contact-form,
+.product-filter {
+    background: white;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Inputs y botones */
+.contact-form input,
+.contact-form textarea,
+.contact-form button,
+.product-filter input,
+.product-filter select,
+.product-filter button {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact-form button,
+.product-filter button {
+    background: #f490c6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 360px;
+}
+
+.contact-form button:hover,
+.product-filter button:hover {
+    background: #f490c6;
+}
+
+/* Botón de WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividad */
+
+/* Para pantallas menores a 700px */
+@media (max-width: 700px) {
+
+    .contact-info-container,
+    .product-info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info,
+    .product-info {
+        flex-direction: column;
+        text-align: center;
+        min-width: 50%;
+    }
+
+    .contact-form,
+    .product-filter {
+        max-width: 90%;
+    }
+}
+
+/* Para pantallas menores a 500px */
+@media (max-width: 500px) {
+
+    .contact-info,
+    .product-info {
+        width: 90%;
+    }
+
+    .contact-form,
+    .product-filter {
+        padding: 15px;
+    }
+}
+
+/* Para pantallas menores a 250px */
+@media (max-width: 250px) {
+
+    .contact-info,
+    .product-info {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .product-filter input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .whatsapp-btn {
+        padding: 10px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        width: 90%;
+        /* Ajusta el ancho */
+        padding: 10px;
+        /* Reduce el padding */
+        border-radius: 15px;
+        /* Bordes más suaves */
+        text-align: center;
+    }
+
+    .contact-info img {
+        width: 20px;
+        /* Ajusta el tamaño del icono */
+        height: auto;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+        /* Reduce tamaño de texto */
+    }
+}
+
+/* Estilos base */
+.contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.pedido-container,
+.resumen-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pedido-container {
+    flex: 1;
+    min-width: 60%;
+}
+
+.resumen-container {
+    min-width: 30%;
+    text-align: center;
+}
+
+/* Estilos del formulario */
+.pedido-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 45%;
+    margin: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 700px) {
+    .contenido {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pedido-container,
+    .resumen-container {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .pedido-container,
+    .resumen-container {
+        padding: 15px;
+    }
+
+    .pedido-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 250px) {
+    .contenido {
+        padding: 10px;
+    }
+
+    .pedido-container,
+    .resumen-container {
+        padding: 10px;
+    }
+
+    .form-group input {
+        padding: 6px;
+    }
+}
+
+/*Idioma*/
+
+/* Contenedor de los botones flotantes */
+#container-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espacio entre los botones */
+    z-index: 1000;
+}
+
+/* Estilos del carrito */
+#cart {
+    background-color: #f490c6;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 🔽 Mueve el carrito 200px a la izquierda */
+    margin-right: 92px;
+}
+
+@media (max-width: 401px) and (max-width: 500px) {
+    #cart {
+        margin-right: 62px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 300px) {
+    #cart {
+        font-size: 10px;
+        margin-right: 62px;
+    }
+}
+
+/* Estilos del botón de idioma */
+#btnIdioma {
+    background-color: #f490c6;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 🔽 Mueve el botón de idioma 10px a la izquierda */
+    margin-top: 4px;
+}
+
+#btnIdioma:hover {
+    background-color: #e91e63;
+    transform: scale(1.1);
+}
+
+@media (max-width: 401px) and (max-width: 500px) {
+    #btnIdioma {
+        margin-right: -5px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 300px) {
+    #btnIdioma {
+        margin-right: -5px;
+        font-size: 10px;
+    }
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fef9f8;
+}
+
+/* Barra de navegación */
+.menu {
+    display: flex;
+    align-items: center;
+    background: #ffb6c1;
+    /* Rosa pastel */
+    padding: 15px 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px 15px 15px 15px;
+    width: 500px;
+    margin: 0 auto;
+    /* Esto lo centra */
+    justify-content: center;
+    /* Asegura que los elementos internos también estén centrados */
+    margin-top: -30px;
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Enlaces del menú */
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    font-weight: 500;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.menu a:hover {
+    background: #ff7f9e;
+    /* Rosa más intenso */
+    box-shadow: 0 4px 6px rgba(255, 127, 158, 0.5);
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle div {
+    width: 30px;
+    height: 4px;
+    background: white;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+        width: 300px;
+    }
+
+    .menu a {
+        display: none;
+        width: 80%;
+        text-align: left;
+        padding: 12px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        width: 100px;
+    }
+
+    .menu.open a {
+        display: block;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Animación del menú hamburguesa */
+    .menu.open .menu-toggle div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu.open .menu-toggle div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu.open .menu-toggle div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos generales */
+
+
+.menu a:hover {
+    background: #ff7f9e;
+}
+
+/* Contenedor del header */
+header {
+    position: relative;
+    height: 250px;
+    /* Se mantiene fijo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    z-index: 1;
+    /* No se sobrepone al menú */
+}
+
+/* Carrusel solo en el área del header */
+.carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.carousel img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+/* Contenido del header */
+.header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.header-content img {
+    height: 120px;
+}
+
+.header-content h1 {
+    font-size: 32px;
+}
+
+/* Para pantallas de 1200px o más */
+@media (min-width: 1200px) {
+    header {
+        height: 400px;
+    }
+
+    .header-content h1 {
+        font-size: 40px;
+    }
+
+    .header-content img {
+        height: 140px;
+    }
+}
+
+/* Para pantallas de 700px a 1199px */
+@media (max-width: 1199px) {
+    header {
+        height: 300px;
+    }
+
+    .header-content h1 {
+        font-size: 36px;
+    }
+
+    .header-content img {
+        height: 130px;
+    }
+}
+
+/* Para pantallas de 500px a 699px */
+@media (max-width: 699px) {
+    header {
+        height: 250px;
+    }
+
+    .header-content h1 {
+        font-size: 30px;
+    }
+
+    .header-content img {
+        height: 110px;
+    }
+}
+
+/* Para pantallas de 200px a 499px */
+@media (max-width: 499px) {
+    header {
+        height: 200px;
+    }
+
+    .header-content h1 {
+        font-size: 24px;
+    }
+
+    .header-content img {
+        height: 90px;
+    }
+}
+
+/* Para pantallas ultra pequeñas (menos de 300px) */
+@media (max-width: 300px) {
+    header {
+        height: 180px;
+    }
+
+    .header-content h1 {
+        font-size: 18px;
+    }
+
+    .header-content img {
+        height: 70px;
+    }
+}
+
+/* Posiciona los iconos de redes sociales en la parte superior izquierda */
+.social-icons {
+    position: fixed;
+    top: 15px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+    /* Asegura que esté sobre otros elementos */
+}
+
+/* Estilos para los iconos */
+.social-icons a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    background: #f490c6;
+    padding: 10px 16px;
+    border-radius: 90%;
+    transition: 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    background: #613318;
+}
+
+@media (max-width: 768px) {
+    .social-icons a {
+        padding: 6px 12px;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons a {
+        font-size: 15px;
+        padding: 4px 9px;
+        margin-top: 6px;
+    }
+}
+
+.hero {
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    background: #f490c6;
+    color: white;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    min-height: 80px;
+    /* Ajustar altura mínima */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero span {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    text-align: center;
+    font-size: 2rem;
+    /* Tamaño base del texto */
+    padding: 10px;
+}
+
+/* Tamaño para pantallas pequeñas (hasta 300px) */
+@media (max-width: 300px) {
+    .hero {
+        min-height: 50px;
+        padding: 8px;
+    }
+
+    .hero span {
+        font-size: 10px;
+    }
+}
+
+/* Tamaño para pantallas medianas (hasta 500px) */
+@media (max-width: 500px) {
+    .hero {
+        min-height: 60px;
+        padding: 13px;
+    }
+
+    .hero span {
+        font-size: 1rem;
+    }
+}
+
+/* Tamaño para pantallas grandes (hasta 1200px) */
+@media (max-width: 1200px) {
+    .hero {
+        min-height: 70px;
+        padding: 18px;
+    }
+
+    .hero span {
+        font-size: 1.8rem;
+    }
+}
+
+/* Mantener el tamaño en pantallas más grandes de 1200px */
+@media (min-width: 1201px) {
+    .hero {
+        min-height: 80px;
+    }
+
+    .hero span {
+        font-size: 2rem;
+    }
+}
+
+.hero {
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    background: #f490c6;
+    color: white;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero span {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    text-align: center;
+}
+
+.hero span.active {
+    opacity: 1;
+}
+
+.arrow {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔹 Estilos base */
+.arrow {
+    width: 40px;
+    height: 40px;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* 📱 Para pantallas pequeñas (≤ 400px) */
+@media (max-width: 400px) {
+    .arrow {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+
+    .arrow.left {
+        left: 5px;
+    }
+
+    .arrow.right {
+        right: 5px;
+    }
+}
+
+/* 📱 Para pantallas medianas (401px - 500px) */
+@media (min-width: 401px) and (max-width: 500px) {
+    .arrow {
+        width: 25px;
+        height: 25px;
+        font-size: 15px;
+    }
+}
+
+/* 🖥️ Para pantallas grandes (> 1200px) */
+@media (min-width: 1200px) {
+    .arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+}
+
+.hero {
+    text-align: center;
+    font-size: 24px;
+    /* Reducido desde 30px */
+    padding: 10px;
+    /* Menos padding para hacerlo más delgado */
+    background: #f490c6;
+    color: white;
+    margin: 15px auto;
+    /* Reduje el margen */
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    min-height: 60px;
+    /* Menos alto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero span {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    text-align: center;
+    font-size: 18px;
+    /* Reducido desde 30px */
+}
+
+/* 🔹 Texto activo */
+.hero span.active {
+    opacity: 1;
+}
+
+/* 📱 Ajustes para pantallas pequeñas */
+@media (max-width: 400px) {
+    .hero {
+        font-size: 10px;
+        min-height: 50px;
+        /* Aún más delgado en móviles */
+    }
+
+    .hero span {
+        font-size: 16px;
+    }
+}
+
+/* 📱 Ajustes para pantallas medianas */
+@media (min-width: 401px) and (max-width: 500px) {
+    .hero {
+        font-size: 15px;
+        min-height: 55px;
+    }
+
+    .hero span {
+        font-size: 14px;
+    }
+}
+
+/* 🖥️ Ajustes para pantallas grandes */
+@media (min-width: 1200px) {
+    .hero {
+        font-size: 22px;
+        min-height: 65px;
+    }
+
+    .hero span {
+        font-size: 20px;
+    }
+}
+
+#btnLogin {
+    background-color: #f490c6;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 🔽 Mueve el botón de idioma 10px a la izquierda */
+    margin-top: 5px;
+}
+
+#btnLogin:hover {
+    background-color: #e91e63;
+    transform: scale(1.1);
+}
+
+@media (max-width: 300px) {
+    #btnLogin {
+        margin-right: -10px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 401px) and (max-width: 500px) {
+    #btnLogin {
+        margin-right: -10px;
+        font-size: 10px;
+    }
+}
+
+/* 🔹 Contenedor principal */
+.login-container {
+    width: 450px;
+    padding: 30px;
+    background: linear-gradient(135deg, #ff91c1, #ff5fa8);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    margin: 80px auto;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* 🔹 Estilos del formulario */
+.login-container h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+/* 🔹 Contenedor de cada input */
+.input-group {
+    position: relative;
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* 🔹 Estilo del input */
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    transition: 0.3s;
+    text-indent: 10px;
+    outline: none;
+}
+
+/* 🔹 Efecto de label flotante */
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #ff3f85;
+    transition: 0.3s ease-in-out;
+    background: white;
+    padding: 2px 6px;
+    border-radius: 5px;
+}
+
+/* 🔹 Efecto al escribir en el input */
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label {
+    top: 5px;
+    font-size: 14px;
+    color: white;
+    background: #ff3f85;
+}
+
+/* 🔹 Efecto de sombra en input */
+.input-group .focus-effect {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 3px;
+    background: #ff3f85;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.input-group input:focus~.focus-effect {
+    width: 100%;
+    left: 0;
+}
+
+/* 🔹 Botón de ingreso */
+.login-container button {
+    width: 90%;
+    padding: 14px;
+    background: linear-gradient(90deg, #ff3f85, #ff7bb1);
+    color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0px 4px 12px rgba(255, 63, 133, 0.6);
+}
+
+.login-container button:hover {
+    background: linear-gradient(90deg, #ff7bb1, #ff3f85);
+    transform: scale(1.05);
+}
+
+.login-container button:active {
+    transform: scale(0.95);
+}
+
+/* 🎆 Fondo animado con flores y burbujas */
+.animated-background .flower,
+.animated-background .bubble {
+    position: absolute;
+    opacity: 0.7;
+    animation: floatAnimation 6s infinite alternate ease-in-out;
+}
+
+.flower {
+    width: 35px;
+    height: 35px;
+    background: radial-gradient(circle, #ff77b5, #ff3f85);
+    border-radius: 50%;
+    top: -20px;
+    left: 10%;
+}
+
+.flower2 {
+    top: -30px;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.flower3 {
+    bottom: -20px;
+    left: 40%;
+    animation-delay: 3.5s;
+}
+
+/* 🔹 Burbujas */
+.bubble {
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.bubble1 {
+    bottom: -15px;
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.bubble2 {
+    bottom: -25px;
+    right: 10%;
+    animation-delay: 2.5s;
+}
+
+.bubble3 {
+    top: -20px;
+    left: 50%;
+    animation-delay: 3.8s;
+}
+
+/* 🔹 Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(20px) rotate(360deg);
+    }
+}
+
+/* 📱 Responsive */
+@media (max-width: 500px) {
+    .login-container {
+        width: 95%;
+        padding: 25px;
+    }
+
+    .login-container h2 {
+        font-size: 22px;
+    }
+
+    .input-group input {
+        font-size: 16px;
+    }
+}
+
+/* 🔹 Contenedor principal */
+.login-container {
+    width: 450px;
+    padding: 30px;
+    background: linear-gradient(135deg, #ff91c1, #ff5fa8);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    margin: 80px auto;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* 🔹 Estilos del formulario */
+.login-container h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+/* 🔹 Contenedor de cada input */
+.input-group {
+    position: relative;
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* 🔹 Estilo del input */
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    transition: 0.3s;
+    text-indent: 10px;
+    outline: none;
+}
+
+/* 🔹 Efecto de label flotante */
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #ff3f85;
+    transition: 0.3s ease-in-out;
+    background: white;
+    padding: 2px 6px;
+    border-radius: 5px;
+}
+
+/* 🔹 Efecto al escribir en el input */
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label {
+    top: 5px;
+    font-size: 14px;
+    color: white;
+    background: #ff3f85;
+}
+
+/* 🔹 Efecto de sombra en input */
+.input-group .focus-effect {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 3px;
+    background: #ff3f85;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.input-group input:focus~.focus-effect {
+    width: 100%;
+    left: 0;
+}
+
+/* 🔹 Botón de ingreso */
+.login-container button {
+    width: 90%;
+    padding: 14px;
+    background: linear-gradient(90deg, #ff3f85, #ff7bb1);
+    color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0px 4px 12px rgba(255, 63, 133, 0.6);
+}
+
+.login-container button:hover {
+    background: linear-gradient(90deg, #ff7bb1, #ff3f85);
+    transform: scale(1.05);
+}
+
+.login-container button:active {
+    transform: scale(0.95);
+}
+
+/* 🎆 Fondo animado con flores y burbujas */
+.animated-background .flower,
+.animated-background .bubble {
+    position: absolute;
+    opacity: 0.7;
+    animation: floatAnimation 6s infinite alternate ease-in-out;
+}
+
+.flower {
+    width: 35px;
+    height: 35px;
+    background: radial-gradient(circle, #ff77b5, #ff3f85);
+    border-radius: 50%;
+    top: -20px;
+    left: 10%;
+}
+
+.flower2 {
+    top: -30px;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.flower3 {
+    bottom: -20px;
+    left: 40%;
+    animation-delay: 3.5s;
+}
+
+/* 🔹 Burbujas */
+.bubble {
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.bubble1 {
+    bottom: -15px;
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.bubble2 {
+    bottom: -25px;
+    right: 10%;
+    animation-delay: 2.5s;
+}
+
+.bubble3 {
+    top: -20px;
+    left: 50%;
+    animation-delay: 3.8s;
+}
+
+/* 🔹 Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(20px) rotate(360deg);
+    }
+}
+
+/* 📱 Responsive */
+
+/* Pantalla de 200px */
+@media (max-width: 200px) {
+    .login-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .login-container h2 {
+        font-size: 18px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+    }
+
+    .login-container button {
+        font-size: 16px;
+    }
+}
+
+/* Pantalla de 500px */
+@media (max-width: 500px) {
+    .login-container {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .login-container h2 {
+        font-size: 22px;
+    }
+
+    .input-group input {
+        font-size: 16px;
+    }
+
+    .login-container button {
+        font-size: 18px;
+    }
+}
+
+/* Pantalla de 700px */
+@media (max-width: 700px) {
+    .login-container {
+        width: 80%;
+        padding: 30px;
+    }
+
+    .login-container h2 {
+        font-size: 24px;
+    }
+
+    .input-group input {
+        font-size: 18px;
+    }
+
+    .login-container button {
+        font-size: 20px;
+    }
+}
+
+/* 🔹 Contenedor principal */
+.container {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* 🔹 Botón de agregar producto */
+.btn-primary {
+    border-radius: 50%;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #ff91c1, #ff5fa8);
+    border: none;
+    font-size: 18px;
+    transition: 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff5fa8, #ff91c1);
+    transform: scale(1.1);
+}
+
+/* 🔹 Estilo de la tabla */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.table thead {
+    background-color: #ff3f85;
+    color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #f0f0f0;
+}
+
+.table th {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.table td {
+    font-size: 14px;
+}
+
+/* 🔹 Estilo de las imágenes en la tabla */
+.table img {
+    border-radius: 8px;
+}
+
+/* 🔹 Estilo de los botones de eliminar */
+.eliminar-button-producto {
+    cursor: pointer;
+    color: #ff3f85;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.eliminar-button-producto:hover {
+    color: #ff5fa8;
+    transform: scale(1.1);
+}
+
+/* 🔹 Modal de agregar producto */
+.modal-dialog {
+    max-width: 80%;
+    border-radius: 10px;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background: #ff3f85;
+    color: white;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+}
+
+.modal-header h5 {
+    font-size: 24px;
+}
+
+.modal-header .close {
+    color: white;
+    font-size: 30px;
+    opacity: 1;
+}
+
+.modal-header .close:hover {
+    opacity: 0.7;
+}
+
+/* 🔹 Estilos del formulario dentro del modal */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #ff3f85;
+    box-shadow: 0 0 5px rgba(255, 63, 133, 0.6);
+}
+
+/* 🔹 Estilo de los botones dentro del modal */
+.modal-footer .btn {
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #ff91c1, #ff5fa8);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.modal-footer .btn:hover {
+    background: linear-gradient(135deg, #ff5fa8, #ff91c1);
+    transform: scale(1.05);
+}
+
+/* 🔹 Estilo de las imágenes previsualizadas */
+#uploadPreview1,
+#uploadPreview2 {
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .modal-dialog {
+        width: 95%;
+        margin: 0;
+    }
+
+    .modal-content {
+        padding: 15px;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+    }
+
+    .table th,
+    .table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 14px;
+    }
+
+    .modal-footer .btn {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .btn-primary {
+        font-size: 14px;
+    }
+
+    .modal-header h5 {
+        font-size: 20px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 12px;
+    }
+
+    .modal-footer .btn {
+        font-size: 14px;
+    }
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none;
+    /* Modal oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    /* Asegurarse de que el modal esté por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Permite desplazamiento si el contenido del modal es demasiado grande */
+    background-color: rgb(0, 0, 0);
+    /* Fondo negro con opacidad */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fondo negro con opacidad */
+}
+
+/* Estilo para el contenido del modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Puedes ajustar el tamaño del modal */
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+/* Estilo para el encabezado del modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Estilo para el botón de cierre */
+.close-btn {
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de cierre en hover */
+.close-btn:hover,
+.close-btn:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para el footer del modal */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+/* Estilos para el formulario */
+.form-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container input[type="date"] {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-container input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+.product {
+    position: relative;
+    width: fit-content;
+}
+
+.product-img {
+    display: block;
+    width: 100%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.product:hover .hover-img {
+    opacity: 1;
+}
+
+.product:hover .product-img:first-child {
+    opacity: 0;
+}
+
+.contenedor-botones {
+    display: flex;
+    /* Alinear los botones en una fila */
+    gap: 10px;
+    /* Espacio entre los botones */
+    justify-content: center;
+    /* Centrar los botones */
+    align-items: center;
+    /* Alinear verticalmente */
+}
+
+.contenedor-botones button {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.contenedor-botones button a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+.contenedor-botones .boton-reviews {
+    background-color: #28a745;
+    /* Color verde para diferenciar */
+}
+
+.contenedor-botones button:hover {
+    opacity: 0.8;
+}
+
+textarea {
+    width: 97%;
+    /* Que ocupe todo el ancho disponible */
+    padding: 10px;
+    /* Espaciado interno */
+    border: 1px solid #ccc;
+    /* Borde similar a los inputs */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    font-family: inherit;
+    /* Mantener la misma fuente que los inputs */
+    resize: vertical;
+    /* Permitir solo redimensionar verticalmente */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    /* Color azul al seleccionar */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Efecto de resaltado */
+    outline: none;
+    /* Eliminar borde predeterminado */
+}
+
+.row {
+    display: flex;
+    /* Usa flexbox para alinear elementos */
+    justify-content: space-between;
+    /* Espacio uniforme entre columnas */
+    gap: 10px;
+    /* Espacio entre las columnas */
+    flex-wrap: wrap;
+    /* Permite que los elementos se acomoden en varias líneas en pantallas pequeñas */
+}
+
+.col {
+    flex: 1;
+    /* Cada columna ocupa el mismo espacio */
+    min-width: 150px;
+    /* Ancho mínimo para evitar que se deformen */
+    text-align: center;
+    /* Centra el contenido */
+}
+
+/*reviews*/
+
+/* Estilos de la ventana emergente */
+.review-popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 300px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+    font-family: Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 3000;
+}
+
+.review-content img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.review-content h3 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.review-content p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Botón de cerrar */
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 1200px) {
+    .review-popup {
+        width: 280px;
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    .review-popup {
+        width: 250px;
+        bottom: 10px;
+        left: 10px;
+        padding: 12px;
+    }
+
+    .review-content h3 {
+        font-size: 16px;
+    }
+
+    .review-content p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 400px) {
+    .review-popup {
+        width: 220px;
+        bottom: 8px;
+        left: 8px;
+        padding: 10px;
+    }
+
+    .review-content img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .review-content h3 {
+        font-size: 15px;
+    }
+
+    .review-content p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 200px) {
+    .review-popup {
+        width: 180px;
+        bottom: 5px;
+        left: 5px;
+        padding: 8px;
+    }
+
+    .review-content img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .review-content h3 {
+        font-size: 14px;
+    }
+
+    .review-content p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .review-popup { width: 280px; bottom: 15px; left: 15px; }
+}
+
+@media (max-width: 700px) {
+    .review-popup { width: 250px; bottom: 10px; left: 10px; padding: 12px; }
+    .review-content h3 { font-size: 16px; }
+    .review-content p { font-size: 13px; }
+}
+
+@media (max-width: 400px) {
+    .review-popup { width: 220px; bottom: 8px; left: 8px; padding: 10px; }
+    .review-content img { width: 70px; height: 70px; }
+    .review-content h3 { font-size: 15px; }
+    .review-content p { font-size: 12px; }
+}
+
+@media (max-width: 200px) {
+    .review-popup { width: 180px; bottom: 5px; left: 5px; padding: 8px; }
+    .review-content img { width: 60px; height: 60px; }
+    .review-content h3 { font-size: 14px; }
+    .review-content p { font-size: 11px; }
+}
+
+/*alerta correo*/
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.menu2{
+    width: 1000px;
+}
+
+@media (max-width: 1200px) {
+    .menu2 {
+        width: 300px;
+    }
+}
