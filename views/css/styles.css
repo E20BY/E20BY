@@ -105,7 +105,7 @@ body {
     border-radius: 5px;
 }
 
-a{
+a {
     color: white;
 }
 
@@ -451,7 +451,7 @@ header span {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 800px;
     margin: auto;
 }
 
@@ -587,7 +587,7 @@ tbody td {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 370px) {
     .menu a {
         font-size: 16px;
     }
@@ -601,7 +601,7 @@ tbody td {
     }
 
     .product-list {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
 
     button,
@@ -610,7 +610,7 @@ tbody td {
     }
 }
 
-@media (max-width: 250px) {
+@media (max-width: 360px) {
     .menu {
         display: block;
         text-align: center;
@@ -636,7 +636,7 @@ tbody td {
     }
 
     .product-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
     }
 }
 
@@ -1425,8 +1425,8 @@ header {
     background: rgba(0, 0, 0, 0.3);
     color: white;
     border: none;
-    padding: 10px;
-    font-size: 24px;
+    padding: 3px;
+    font-size: 10px;
     cursor: pointer;
     border-radius: 50%;
     display: flex;
@@ -1436,8 +1436,8 @@ header {
 
 /* 🔹 Estilos base */
 .arrow {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
 }
 
 .arrow.left {
@@ -1455,9 +1455,9 @@ header {
 /* 📱 Para pantallas pequeñas (≤ 400px) */
 @media (max-width: 400px) {
     .arrow {
-        width: 20px;
-        height: 20px;
-        font-size: 14px;
+        width: 13px;
+        height: 13px;
+        font-size: 8px;
     }
 
     .arrow.left {
@@ -1472,26 +1472,17 @@ header {
 /* 📱 Para pantallas medianas (401px - 500px) */
 @media (min-width: 401px) and (max-width: 500px) {
     .arrow {
-        width: 25px;
-        height: 25px;
-        font-size: 15px;
-    }
-}
-
-/* 🖥️ Para pantallas grandes (> 1200px) */
-@media (min-width: 1200px) {
-    .arrow {
-        width: 50px;
-        height: 50px;
-        font-size: 26px;
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
     }
 }
 
 .hero {
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     /* Reducido desde 30px */
-    padding: 10px;
+    padding: 3px;
     /* Menos padding para hacerlo más delgado */
     background: #f490c6;
     color: white;
@@ -1502,7 +1493,7 @@ header {
     border-radius: 20px;
     overflow: hidden;
     position: relative;
-    min-height: 60px;
+    min-height: 30px;
     /* Menos alto */
     display: flex;
     align-items: center;
@@ -1525,41 +1516,18 @@ header {
 }
 
 /* 📱 Ajustes para pantallas pequeñas */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .hero {
         font-size: 10px;
-        min-height: 50px;
+        min-height: 30px;
         /* Aún más delgado en móviles */
     }
 
     .hero span {
-        font-size: 16px;
+        font-size: 11px;
     }
 }
 
-/* 📱 Ajustes para pantallas medianas */
-@media (min-width: 401px) and (max-width: 500px) {
-    .hero {
-        font-size: 15px;
-        min-height: 55px;
-    }
-
-    .hero span {
-        font-size: 14px;
-    }
-}
-
-/* 🖥️ Ajustes para pantallas grandes */
-@media (min-width: 1200px) {
-    .hero {
-        font-size: 22px;
-        min-height: 65px;
-    }
-
-    .hero span {
-        font-size: 20px;
-    }
-}
 
 #btnLogin {
     background-color: #f490c6;
@@ -2255,6 +2223,18 @@ header {
     }
 }
 
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+@media (max-width:575.98px) {
+    .table-responsive-sm {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch
+    }
+}
+
 /* Estilo para el modal */
 .modal {
     display: none;
@@ -2602,27 +2582,72 @@ textarea:focus {
 }
 
 @media (max-width: 1200px) {
-    .review-popup { width: 280px; bottom: 15px; left: 15px; }
+    .review-popup {
+        width: 280px;
+        bottom: 15px;
+        left: 15px;
+    }
 }
 
 @media (max-width: 700px) {
-    .review-popup { width: 250px; bottom: 10px; left: 10px; padding: 12px; }
-    .review-content h3 { font-size: 16px; }
-    .review-content p { font-size: 13px; }
+    .review-popup {
+        width: 250px;
+        bottom: 10px;
+        left: 10px;
+        padding: 12px;
+    }
+
+    .review-content h3 {
+        font-size: 16px;
+    }
+
+    .review-content p {
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 400px) {
-    .review-popup { width: 220px; bottom: 8px; left: 8px; padding: 10px; }
-    .review-content img { width: 70px; height: 70px; }
-    .review-content h3 { font-size: 15px; }
-    .review-content p { font-size: 12px; }
+    .review-popup {
+        width: 220px;
+        bottom: 8px;
+        left: 8px;
+        padding: 10px;
+    }
+
+    .review-content img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .review-content h3 {
+        font-size: 15px;
+    }
+
+    .review-content p {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 200px) {
-    .review-popup { width: 180px; bottom: 5px; left: 5px; padding: 8px; }
-    .review-content img { width: 60px; height: 60px; }
-    .review-content h3 { font-size: 14px; }
-    .review-content p { font-size: 11px; }
+    .review-popup {
+        width: 180px;
+        bottom: 5px;
+        left: 5px;
+        padding: 8px;
+    }
+
+    .review-content img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .review-content h3 {
+        font-size: 14px;
+    }
+
+    .review-content p {
+        font-size: 11px;
+    }
 }
 
 /*alerta correo*/
@@ -2633,16 +2658,18 @@ textarea:focus {
     text-align: center;
     font-weight: bold;
 }
+
 .alert-success {
     background-color: #d4edda;
     color: #155724;
 }
+
 .alert-danger {
     background-color: #f8d7da;
     color: #721c24;
 }
 
-.menu2{
+.menu2 {
     width: 1000px;
 }
 

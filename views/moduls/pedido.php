@@ -14,14 +14,14 @@ $cart = $carrito->countCarrito();
             <input type="hidden" name="merchantId" value="1017725">
             <input type="hidden" name="accountId" value="1026679">
             <input type="hidden" name="algorithmSignature" value="MD5">
-            <input type="hidden" name="signature" id="" value="<?php echo md5('CemTGaTCksDWEGJe90DuuChGxo~1017725~' . 'REF' . $GLOBALS['randomCode'] . " " . date('Y/m/d H:i:s') . "~" . ($cont[0]['SUM(precio*cantidad)'] + 5000) . '.00' . '~COP') ?>">
+            <input type="hidden" name="signature" id="" value="<?php echo md5('CemTGaTCksDWEGJe90DuuChGxo~1017725~' . 'REF' . $GLOBALS['codigo_global'] . " " . date('Y/m/d H:i:s') . "~" . ($cont[0]['SUM(precio*cantidad)'] + 5000) . '.00' . '~COP') ?>">
             <input type="hidden" name="sourceUrl" value="https://proverpet.com.co/">
             <input type="hidden" name="responseUrl" value="https://proverpet.com.co/views/response.php">
             <input type="hidden" name="confirmationUrl" value="https://proverpet.com.co/confirmation">
             <input name="test" type="hidden" value="0">
             <!--RESUMEN DEL PEDIDO-->
             <input type="hidden" name="description" value="venta prueba">
-            <input type="hidden" name="referenceCode" value="REF<?php echo $GLOBALS['randomCode'] . " " . date('Y/m/d H:i:s') ?>">
+            <input type="hidden" name="referenceCode" value="REF<?php echo $GLOBALS['codigo_global'] . " " . date('Y/m/d H:i:s') ?>">
             <input type="hidden" name="amount" value="<?php echo $cont[0]['SUM(precio*cantidad)'] + 5000 ?>">
             <input type="hidden" name="tax" value="0">
             <input type="hidden" name="taxReturnBase" value="0">
@@ -109,11 +109,11 @@ $cart = $carrito->countCarrito();
     </div>
 </form>
 <script>
-    document.getElementById('buyerEmail').addEventListener('input', function() {
+    /*document.getElementById('buyerEmail').addEventListener('input', function() {
         const buyerEmail = this.value;
         const merchantId = "1017591";
         const apiKey = "870LCJE0C3c2xNt668k2OAjY64";
-        const referenceCode = "REF<?php echo $GLOBALS['randomCode'] . " " . date('Y/m/d H:i:s') ?>";
+        const referenceCode = "REF<?php echo $GLOBALS['codigo_global'] . " " . date('Y/m/d H:i:s') ?>";
         const amount = "<?php echo $cont[0]['SUM(precio*cantidad)'] + 5000; ?>";
         const currency = "COP";
         const accountId = "1026541";
@@ -124,5 +124,5 @@ $cart = $carrito->countCarrito();
 
         // Asignar el hash calculado al campo oculto
         document.getElementById('signature').value = signatureHash;
-    });
+    });*/
 </script>

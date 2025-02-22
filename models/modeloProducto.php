@@ -121,7 +121,7 @@ class ModeloProducto
 
     function listarTablasProducto()
     {
-        $sql = "SELECT table_name FROM information_schema.columns WHERE column_name = 'id_producto' AND table_schema = 'tiendae20flowers'";
+        $sql = "SELECT table_name FROM information_schema.columns WHERE column_name = 'id_producto' AND table_schema = 'eflowers_tiendae20flowers'";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
 

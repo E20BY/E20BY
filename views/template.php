@@ -97,6 +97,7 @@ $GLOBALS['codigo_global'] = $codigoUsuario;
 
     <?php include("views/moduls/footer.php"); ?>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="views/js/traductores.js"></script>
     <script src="views/js/alertas.js"></script>
     <script src="views/js/modal.js"></script>

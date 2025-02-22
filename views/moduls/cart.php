@@ -5,20 +5,22 @@ $cont = $agre->totalCarrito();
 ?>
 <div class="cart-container">
     <h2 id="moduloCarrito">Carrito de Compras</h2>
-    <table>
-        <thead>
-            <tr>
-                <th id="tableProduc">Producto</th>
-                <th id="tablePre">Precio</th>
-                <th id="tableCats">Cantidad</th>
-                <th id="tableTotal">Total</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="cart-items">
-            <!-- Los productos se agregarán dinámicamente aquí -->
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th id="tableProduc">Producto</th>
+                    <th id="tablePre">Precio</th>
+                    <th id="tableCats">Cantidad</th>
+                    <th id="tableTotal">Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Los productos se agregarán dinámicamente aquí -->
+            </tbody>
+        </table>
+    </div>
     <div class="cart-summary">
         <h3>Total: <span id="cart-total">$0.00</span></h3>
         <button id="confirm-purchase">Confirmar Compra</button>
@@ -35,7 +37,7 @@ $cont = $agre->totalCarrito();
                                 'id' => $item['id_carrito']
                             ];
                         }, $res)); ?>;
-    
+
     console.log(cartItems); // Verifica los valores generados
 
 

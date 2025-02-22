@@ -137,4 +137,8 @@ $resReviews = $reviews->listarReviewsInfo();
             popupVisible = true;
         }, 10000); // Rehabilita la visibilidad después de un ciclo
     });
+
+    document.getElementById("cart").addEventListener("click", function() {
+        window.location.href = 'cart';
+    });
 </script>
