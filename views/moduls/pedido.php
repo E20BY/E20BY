@@ -69,19 +69,19 @@ $cart = $carrito->countCarrito();
                     <input type="text" name="direccion1" id="direccion1" placeholder="123 Street">
                 </div>
                 <div class="form-group">
-                    <label id="labelDireccion2">Dirección 2 (Opcional)</label>
-                    <input type="text" name="direccion2" id="direccion2" placeholder="123 Street">
+                    <label id="labelDireccion2">Apartamento, suite, etc</label>
+                    <input type="text" name="direccion2" id="direccion2" placeholder="Apartament, suite, etc">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label id="labelCiudad">Ciudad</label>
-                    <input type="text" name="ciudad" id="barrio" id="ciudad" placeholder="BOGOTA D.C">
+                    <input type="text" name="ciudad" id="ciudad" placeholder="BOGOTA D.C">
                 </div>
                 <div class="form-group">
-                    <label id="labelBarrio">Barrio</label>
-                    <input type="text" name="barrio" id="codigoPostal" placeholder="KENNEDY">
+                    <label id="labelBarrio">Estado</label>
+                    <input type="text" name="barrio" id="barrio" placeholder="KENNEDY">
                 </div>
             </div>
 
@@ -95,20 +95,64 @@ $cart = $carrito->countCarrito();
         <div class="resumen-container">
             <h2 id="totalPedido">Total del Pedido</h2>
             <p><span id="productos">Productos: </span></p>
+
             <?php
             foreach ($res as $key => $value) {
             ?>
-                <p><span id=""><?php echo "" . $key + 1 . ". " . $value['nombre'] ?></span> <span>$<?php echo number_format($cont[0]['SUM(precio*cantidad)'], 0) ?></span></p>
+                <p><span><?php echo "" . ($key + 1) . ". " . $value['nombre'] ?></span>
+                    <span>$<?php echo number_format($cont[0]['SUM(precio*cantidad)'], 0) ?></span>
+                </p>
             <?php
             }
             ?>
-            <p><span id="envio">Envío:</span> <span>$5,000</span></p>
-            <p><span id="total">Total:</span> <strong>$<?php echo number_format($cont[0]['SUM(precio*cantidad)'] + 5000, 0) ?></strong></p>
+
+            <p>
+                <span id="envio">Envío:</span>
+                <select id="envioDelibery" class="">
+                    <option value="15" id="tax1">Normal - $15.00</option>
+                    <option value="45" id="tax2">Express - $45.00</option>
+                </select>
+            </p>
+
+            <p><span>Taxes (7%):</span> <span id="taxes">$0</span></p>
+
+            <p>
+                <span id="total">Total:</span>
+                <strong id="totalPed">
+                    $<?php echo number_format($cont[0]['SUM(precio*cantidad)'] + 15, 0) ?>
+                </strong>
+            </p>
+
             <button id="realizarPedido" class="pedido-button">Realizar Pedido</button>
         </div>
+
     </div>
 </form>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const envioSelect = document.getElementById("envioDelibery");
+        const taxesElement = document.getElementById("taxes");
+        const totalElement = document.getElementById("totalPed");
+
+        let subtotal = <?php echo $cont[0]['SUM(precio*cantidad)']; ?>; // Precio total productos
+
+        function actualizarTotal() {
+            let envio = parseFloat(envioSelect.value);
+            let taxes = (subtotal + envio) * 0.07; // 7% de impuestos
+            let total = subtotal + envio + taxes;
+
+            taxesElement.textContent = `$${new Intl.NumberFormat().format(taxes.toFixed(0))}`;
+            totalElement.textContent = `$${new Intl.NumberFormat().format(total.toFixed(0))}`;
+        }
+
+        // Detectar cambios en el select de envío
+        envioSelect.addEventListener("change", actualizarTotal);
+
+        // Inicializar el cálculo al cargar
+        actualizarTotal();
+    });
+
+
     /*document.getElementById('buyerEmail').addEventListener('input', function() {
         const buyerEmail = this.value;
         const merchantId = "1017591";

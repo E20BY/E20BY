@@ -6,6 +6,13 @@ $reviews = new ControladorReview();
 $res = $reviews->agregarReview();
 $resReviews = $reviews->listarReviewsInfo();
 ?>
+<!--<div class="hero" id="hero">
+    <button class="arrow left" onclick="cambiarTexto(-1)">&#9665;</button>
+    <span id="describeInicio" class="active">Encuentra las flores perfectas para cada ocasión</span>
+    <span id="descriProduc">Explora nuestra colección de flores</span>
+    <span id="envioCart">Envíos rápidos y seguros</span>
+    <button class="arrow right" onclick="cambiarTexto(1)">&#9655;</button>
+</div>-->
 <div class="social-icons">
     <a href="https://www.facebook.com/share/18FPiTZjCY/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/e20_miami?igsh=NzMxazl4ZjI5OWNm&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -17,7 +24,7 @@ $resReviews = $reviews->listarReviewsInfo();
         <!--<img src="https://la-flora.net/image/cache/catalog/tovars/2201-600x600.jpeg" class="active" alt="Flor 1">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLDlfFzcdemzRNRsCAgjN6eaDPrBOcBTARpA&s" alt="Flor 2">
         <img src="https://la-flora.net/image/cache/catalog/tovars/1417-600x600.jpeg" alt="Flor 3">-->
-        <img src="views/img/header.jpeg" alt="Flor 4">
+        <img class="active" src="views/img/header.jpeg" alt="Flor 4">
     </div>
 
     <!-- Contenido del header (logo y título) -->
@@ -34,7 +41,8 @@ $resReviews = $reviews->listarReviewsInfo();
         <div></div>
     </div>
     <a href="inicio" id="menuInicio">Home</a>
-    <a href="productos" id="menuProductos">Products</a>
+    <a href="productos" id="menuProductos">Flowers</a>
+    <a href="productoChocolate" id="menuchocolate">Chocolate covered strawberries</a>
     <a href="cart" id="menuCarrito">Cart</a>
     <a href="contacto" id="menuContacto">Contact</a>
     <?php
@@ -75,7 +83,7 @@ $resReviews = $reviews->listarReviewsInfo();
 
 <script>
     // JavaScript para el carrusel automático
-    let index = 0;
+    /*let index = 0;
     const images = document.querySelectorAll('.carousel img');
 
     function changeImage() {
@@ -84,7 +92,7 @@ $resReviews = $reviews->listarReviewsInfo();
         images[index].classList.add('active');
     }
 
-    setInterval(changeImage, 3000); // Cambia cada 3 segundos
+    setInterval(changeImage, 3000); // Cambia cada 3 segundos*/
 
 
     // Generar el array de objetos usando PHP y JSON
@@ -140,5 +148,28 @@ $resReviews = $reviews->listarReviewsInfo();
 
     document.getElementById("cart").addEventListener("click", function() {
         window.location.href = 'cart';
+    });
+
+    //
+    let spans;
+    let currentIndex = 0;
+    let intervalo;
+
+    function cambiarTexto(direccion = 1) {
+        spans[currentIndex].classList.remove("active");
+        currentIndex = (currentIndex + direccion + spans.length) % spans.length;
+        spans[currentIndex].classList.add("active");
+        reiniciarIntervalo();
+    }
+
+    function reiniciarIntervalo() {
+        clearInterval(intervalo);
+        intervalo = setInterval(() => cambiarTexto(1), 10000); // Cambio automático cada 10 segundos
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        spans = document.querySelectorAll(".hero span");
+        spans[currentIndex].classList.add("active");
+        intervalo = setInterval(() => cambiarTexto(1), 10000);
     });
 </script>

@@ -13,7 +13,7 @@ $cont = $agre->totalCarrito();
                     <th id="tablePre">Precio</th>
                     <th id="tableCats">Cantidad</th>
                     <th id="tableTotal">Total</th>
-                    <th>Acciones</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="cart-items">
@@ -21,6 +21,7 @@ $cont = $agre->totalCarrito();
             </tbody>
         </table>
     </div>
+    <p id="taxescalcu">Taxes and shipping calculated at checkout.</p>
     <div class="cart-summary">
         <h3>Total: <span id="cart-total">$0.00</span></h3>
         <button id="confirm-purchase">Confirmar Compra</button>
@@ -31,6 +32,7 @@ $cont = $agre->totalCarrito();
     // Generar el array de objetos usando PHP y JSON
     const cartItems = <?php echo json_encode(array_map(function ($item) {
                             return [
+                                'logo' => $item['foto_protada'],
                                 'nombre' => $item['nombre'],
                                 'precio' => $item['precio_carrito'],
                                 'cantidad' => $item['cant_carrito'],
@@ -47,8 +49,8 @@ $cont = $agre->totalCarrito();
         let total = 0;
 
         cartItems.forEach((item, index) => {
-            const precio = parseFloat(item.precio) || 0; // Convertir a número
-            const cantidad = parseInt(item.cantidad) || 0; // Convertir a entero
+            const precio = parseFloat(item.precio) || 0;
+            const cantidad = parseInt(item.cantidad) || 0;
             const subtotal = precio * cantidad;
             total += subtotal;
 
@@ -64,7 +66,10 @@ $cont = $agre->totalCarrito();
 
             const row = document.createElement("tr");
             row.innerHTML = `
-            <td>${item.nombre}</td>
+            <td>
+                <img src="${item.logo}" alt="${item.nombre}" style="width:50px; height:auto; margin-right:10px;">
+                <p style="text-align: center;">${item.nombre}</p>
+            </td>
             <td>$${precioFormateado}</td>
             <td>
                 <div class="quantity">
@@ -87,6 +92,7 @@ $cont = $agre->totalCarrito();
         // Formatear el total con separadores de miles
         document.getElementById("cart-total").textContent = `$${total.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     }
+
 
     document.getElementById("confirm-purchase").addEventListener("click", () => {
         window.location = "pedido";

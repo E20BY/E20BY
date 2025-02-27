@@ -8,9 +8,9 @@ const traducciones = {
         correo: "Correo",
         telefono: "Número de Teléfono",
         direccion1: "Dirección 1",
-        direccion2: "Dirección 2 (Opcional)",
+        direccion2: "Apartamento, suite, etc",
         ciudad: "Ciudad",
-        barrio: "Barrio",
+        barrio: "Estado",
         codigoPostal: "Código Postal",
         totalPedido: "Total del Pedido",
         productos: "Productos",
@@ -19,7 +19,8 @@ const traducciones = {
         realizarPedido: "Realizar Pedido",
         tituloTienda: "Tienda de Flores",
         menuInicio: "Inicio",
-        menuProductos: "Productos",
+        menuProductos: "Flores",
+        menuchocolate: "Fresas Cubiertas de Chocolate",
         menuCarrito: "Carrito",
         menuContacto: "Contacto",
         textoCarrito: "Carrito",
@@ -34,12 +35,12 @@ const traducciones = {
         tableCats: "Cantidad",
         tableTotal: "Total",
         describeInicio: "Encuentra las flores perfectas para cada ocasión",
-        botonCarrito: "Añadir al carrito",
+        botonCarrito: "🛒 Añadir al carrito",
         descriProduc: "Explora nuestra colección de flores",
         selectPreci: "Filtrar por precio:",
         optionAll: "Todos",
         optionHasta: "Hasta",
-        InputCant: "Filtrar por cantidad de flores:",
+        tableCat: "Filtrar por cantidad de flores:",
         inputCantExam: "Ejemplo: 10",
         nombreCorreo: "Tu Nombre",
         TuCorreo: "Tu Correo",
@@ -58,7 +59,20 @@ const traducciones = {
         reviewsMessage: "Descripción",
         buttonReviews: "Agregar",
         siguenos: "Síguenos en nuestras redes sociales.",
-        TuEncabezado: "Por favor, introduzca un asunto"
+        TuEncabezado: "Por favor, introduzca un asunto",
+        tax1: "Condado de Miami-Dade $15",
+        tax2: "Condado de Broward $45",
+        mess: "Mensaje del carrito:",
+        pago: "🔒 Pago seguro en línea",
+        envioseguro: "🚚 Envío rápido",
+        estamos: "📞 ¡Estamos aquí para ayudar!",
+        descridetalle: "Valoramos cada detalle para nuestros clientes. Si tiene alguna solicitud específica para su producto, infórmenos en el cuadro de recomendaciones. La satisfacción del cliente es nuestra prioridad.",
+        taxescalcu: "Los impuestos y los gastos de envío se calculan al finalizar la compra.",
+        box1: "Recomendación",
+        box2: "Recomendacion De La Caja",
+        infoDes: "Información",
+        infoDes1: "Descripción Producto",
+        infoDes2: "Información Adicional"
     },
     en: {
         direccionEnvio: "Shipping Address",
@@ -67,9 +81,9 @@ const traducciones = {
         correo: "Email",
         telefono: "Phone Number",
         direccion1: "Address 1",
-        direccion2: "Address 2 (Optional)",
+        direccion2: "Apartament, suite, etc",
         ciudad: "City",
-        barrio: "Neighborhood",
+        barrio: "State",
         codigoPostal: "Postal Code",
         totalPedido: "Order Summary",
         productos: "Products",
@@ -78,7 +92,8 @@ const traducciones = {
         realizarPedido: "Place Order",
         tituloTienda: "Flower Shop",
         menuInicio: "Home",
-        menuProductos: "Products",
+        menuProductos: "Flowers",
+        menuchocolate: "Chocolate Covered Strawberries",
         menuCarrito: "Cart",
         menuContacto: "Contact",
         textoCarrito: "Cart",
@@ -90,10 +105,10 @@ const traducciones = {
         moduloCarrito: "Shopping Cart",
         tableProduc: "Product",
         tablePre: "Price",
-        tableCats: "Amount",
+        tableCats: "Quantity",
         tableTotal: "Total",
         describeInicio: "Find the perfect flowers for every occasion",
-        botonCarrito: "Add to cart",
+        botonCarrito: "🛒 Add to cart",
         descriProduc: "Explore our flower collection",
         selectPreci: "Filter by price:",
         optionAll: "ALL",
@@ -116,7 +131,20 @@ const traducciones = {
         reviewsMessage: "Description",
         buttonReviews: "Add",
         siguenos: "Follow us on our social media.",
-        TuEncabezado: "Please enter a subject"
+        TuEncabezado: "Please enter a subject",
+        tax1: "Miami dade country $15",
+        tax2: "Broward country $45",
+        mess: "Card Message:",
+        pago: "🔒 Secure online checkout",
+        envioseguro: "🚚 Fast shipping",
+        estamos: "📞 We´re here to help",
+        descridetalle: "We value every detail for our customers. If you have specific requests for your product, please let us know in the recommendations box.Customer satisfaction is our priority.",
+        taxescalcu: "Taxes and shipping calculated at checkout.",
+        box1: "Recommendation",
+        box2: "Recommendation",
+        infoDes: "Information",
+        infoDes1: "Product description",
+        infoDes2: "Additional information"
     }
 };
 
@@ -124,8 +152,12 @@ function cambiarIdioma(idioma) {
     document.getElementById("tituloTienda").textContent = traducciones[idioma].tituloTienda;
     document.getElementById("menuInicio").textContent = traducciones[idioma].menuInicio;
     document.getElementById("menuProductos").textContent = traducciones[idioma].menuProductos;
+    document.getElementById("menuchocolate").textContent = traducciones[idioma].menuchocolate;
     document.getElementById("menuCarrito").textContent = traducciones[idioma].menuCarrito;
     document.getElementById("menuContacto").textContent = traducciones[idioma].menuContacto;
+    /*document.getElementById("describeInicio").textContent = traducciones[idioma].describeInicio;
+    document.getElementById("descriProduc").textContent = traducciones[idioma].descriProduc;
+    document.getElementById("envioCart").textContent = traducciones[idioma].envioCart;*/
     if (document.getElementById("menuCat")) {
         document.getElementById("menuCat").textContent = traducciones[idioma].menuCat;
         document.getElementById("menuCli").textContent = traducciones[idioma].menuCli;
@@ -133,6 +165,16 @@ function cambiarIdioma(idioma) {
         document.getElementById("menuVen").textContent = traducciones[idioma].menuVen;
         document.getElementById("menuSalir").textContent = traducciones[idioma].menuSalir;
         document.getElementById("menuInv").textContent = traducciones[idioma].menuInv;
+    }
+
+    if (document.getElementById("mess")) {
+        document.getElementById("mess").textContent = traducciones[idioma].mess;
+        document.getElementById("pago").textContent = traducciones[idioma].pago;
+        document.getElementById("envioseguro").textContent = traducciones[idioma].envioseguro;
+        document.getElementById("estamos").textContent = traducciones[idioma].estamos;
+        document.getElementById("descridetalle").textContent = traducciones[idioma].descridetalle;
+        document.getElementById("box1").textContent = traducciones[idioma].box1;
+        document.getElementById("box2").textContent = traducciones[idioma].box2;
     }
 
     if (document.getElementById("direccionEnvio")) {
@@ -151,6 +193,8 @@ function cambiarIdioma(idioma) {
         document.getElementById("envio").textContent = traducciones[idioma].envio;
         document.getElementById("total").textContent = traducciones[idioma].total;
         document.getElementById("realizarPedido").textContent = traducciones[idioma].realizarPedido;
+        document.getElementById("tax1").textContent = traducciones[idioma].tax1;
+        document.getElementById("tax2").textContent = traducciones[idioma].tax2;
     }
 
     if (document.getElementById("selectPreci")) {
@@ -165,12 +209,10 @@ function cambiarIdioma(idioma) {
         document.getElementById("tablePre").textContent = traducciones[idioma].tablePre;
         document.getElementById("tableCats").textContent = traducciones[idioma].tableCats;
         document.getElementById("tableTotal").textContent = traducciones[idioma].tableTotal;
+        document.getElementById("taxescalcu").textContent = traducciones[idioma].taxescalcu;
     }
 
-    if (document.getElementById("describeInicio")) {
-        document.getElementById("describeInicio").textContent = traducciones[idioma].describeInicio;
-        document.getElementById("descriProduc").textContent = traducciones[idioma].descriProduc;
-        document.getElementById("envioCart").textContent = traducciones[idioma].envioCart;
+    if (document.getElementById("tituloReviews")) {
         document.getElementById("tituloReviews").textContent = traducciones[idioma].tituloReviews;
         document.getElementById("nameReviews").textContent = traducciones[idioma].nameReviews;
         document.getElementById("reviewsEmail").textContent = traducciones[idioma].reviewsEmail;

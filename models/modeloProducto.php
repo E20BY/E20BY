@@ -156,7 +156,7 @@ class ModeloProducto
 
     function listarProductoIdModelo($id)
     {
-        $sql = "SELECT *, categoria.nombre AS categoria, productos.nombre AS producto FROM $this->tabla INNER JOIN categoria ON categoria.id_categoria = productos.id_categoria INNER JOIN fotos_producto ON fotos_producto.id_producto = productos.id_producto WHERE productos.id_producto = ?";
+        $sql = "SELECT *, categoria.nombre AS categoria, productos.nombre AS producto FROM $this->tabla INNER JOIN categoria ON categoria.id_categoria = productos.id_categoria INNER JOIN fotos_producto ON fotos_producto.id_producto = productos.id_producto INNER JOIN descripcion_producto ON descripcion_producto.id_producto = productos.id_producto WHERE productos.id_producto = ?";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
         $stms->bindParam(1, $id, PDO::PARAM_STR);

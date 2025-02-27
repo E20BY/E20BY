@@ -98,6 +98,8 @@ $("#producto").autocomplete({
         document.querySelector('input[name="precio"]').value = precio;
         document.querySelector('input[name="cant"]').value = ui.item.cant;
         document.querySelector('input[name="canti_flores"]').value = ui.item.canti_flores;
+        document.querySelector('textarea[name="descrip"]').value = ui.item.des;
+        document.querySelector('textarea[name="infoAdd"]').value = ui.item.info;
         const id_categoria = document.querySelector('select[name="id_categoria"]');
         id_categoria.value = ui.item.id_categoria;
         document.querySelector('input[name="portadaEdit"]').value = ui.item.protada;
@@ -555,7 +557,53 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Manejar el clic en botones de aumentar o disminuir cantidad
+    document.querySelectorAll('.btn-sumar, .btn-restar').forEach(button => {
+        button.addEventListener('click', function () {
+            const input = this.closest('.agregar-carrito').querySelector('input');
+            
+            let cantidadActual = parseInt(input.value) || 0;
 
+            // Determinar si es suma o resta
+            if (this.classList.contains('btn-sumar')) {
+                cantidadActual++;
+            } else if (this.classList.contains('btn-restar')) {
+                cantidadActual = Math.max(1, cantidadActual - 1); // Evitar que baje de 1
+            }
+
+            // Actualizar el input con la nueva cantidad
+            input.value = cantidadActual;
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecciona todos los elementos con la clase 'product'
+    const what = document.querySelectorAll(".url");
+    // Agrega un evento de clic a cada producto
+    what.forEach(what => {
+        what.addEventListener("click", function () {
+            // Redirige a la página de detalles
+            const url = `https://wa.me/+17863974240`;
+            window.location.href = url;
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecciona todos los elementos con la clase 'product'
+    const productos = document.querySelectorAll(".product-img");
+    const id = document.querySelector('input[name="id"]').value;
+    // Agrega un evento de clic a cada producto
+    productos.forEach(producto => {
+        producto.addEventListener("click", function () {
+            // Redirige a la página de detalles
+            const url = `index.php?action=detalles&id=${encodeURIComponent(id)}`;
+            window.location.href = url;
+        });
+    });
+});
 
 //enviar cantidad y id producto a carrito
 document.getElementById('btnAgregarCarrito').addEventListener('click', function (event) {
@@ -564,12 +612,18 @@ document.getElementById('btnAgregarCarrito').addEventListener('click', function 
     // Obtener los valores de los inputs
     const id = document.querySelector('input[name="id"]').value;
     const cantidad = document.querySelector('input[name="cant"]').value;
+    const mess = document.querySelector('textarea[name="mensaje"]').value;
+    const date = document.querySelector('input[name="fecha"]').value;
+    const time = document.querySelector('select[name="hora"]').value;
+    const box = document.querySelector('textarea[name="box"]').value;
 
     // Crear la URL con los parámetros GET
-    const url = `index.php?action=cart&id=${encodeURIComponent(id)}&cant=${encodeURIComponent(cantidad)}`;
+    const url = `index.php?action=cart&id=${encodeURIComponent(id)}&cant=${encodeURIComponent(cantidad)}&mess=${encodeURIComponent(mess)}&date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}&box=${encodeURIComponent(box)}`;
 
     // Redirigir al usuario
     window.location.href = url;
 });
+
+
 
 

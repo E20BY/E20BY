@@ -102,7 +102,17 @@ $resCat = $cat->agregarCategoria();
                         </select>
                     </div>
                 </div>
-
+                <h3 class="mt-2">Información del producto</h3>
+                    <div class="row mt-2">
+                        <div class="col-md-6 form-group">
+                            <label>Descripcion</label>
+                            <textarea name="descrip" id="" class="form-control"></textarea>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Información Adicional</label>
+                            <textarea name="infoAdd" id="" class="form-control"></textarea>
+                        </div>
+                    </div>
                 <h3 class="mt-2">Imagenes</h3>
                 <div class="row mt-2">
                     <div class="col-md-6 form-group">

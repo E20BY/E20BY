@@ -17,7 +17,14 @@ class ControladorProducto
                 $agregar = new ModeloProducto();
                 $res = $agregar->actualizarProductoModelo($dato);
                 if ($res == true) {
-                    if ($res == true) {
+                    $datoInfo = array(
+                        'id_producto' => $_POST['id'],
+                        'descrip' => $_POST['descrip'],
+                        'infoAdd' => $_POST['infoAdd']
+                    );
+                    $agregarDescripcion = new ControladorDescripcionProducto();
+                    $resDescrip = $agregarDescripcion->actualizarDescripcionProducto($datoInfo);
+                    if ($resDescrip == true) {
                         $targetDir = 'views/img/productos/';
                         // Inicializar el array de imágenes
                         $datoImagenes = [
@@ -76,11 +83,17 @@ class ControladorProducto
                     'id_categoria' => $_POST['id_categoria']
                 );
                 $agregar = new ModeloProducto();
-                var_dump($dato);
                 $res = $agregar->agregarProductoModelo($dato);
                 if ($res == true) {
                     $ultimoId = $agregar->obtenerUltimoIdProducto();
-                    if ($res == true) {
+                    $datoInfo = array(
+                        'id_producto' => $ultimoId[0]['MAX(id_producto)'],
+                        'descrip' => $_POST['descrip'],
+                        'infoAdd' => $_POST['infoAdd']
+                    );
+                    $agregarDescripcion = new ControladorDescripcionProducto();
+                    $resDescrip = $agregarDescripcion->agregarDescripcionProducto($datoInfo);
+                    if ($resDescrip == true) {
                         $targetDir = 'views/img/productos/';
                         // Inicializar el array de imágenes
                         $datoImagenes = [
@@ -135,7 +148,8 @@ class ControladorProducto
         return $res;
     }
 
-    function listarPrecioFiltro(){
+    function listarPrecioFiltro()
+    {
         $listar = new ModeloProducto();
         $res = $listar->listarPrecioFiltroModelo();
         return $res;
@@ -157,4 +171,3 @@ class ControladorProducto
         }
     }
 }
-

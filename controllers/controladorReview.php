@@ -4,6 +4,7 @@ class ControladorReview
     function agregarReview()
     {
         if (isset($_POST['agregarReview'])) {
+            $id = $_GET['id'];
             $dato = array(
                 'id' => $_GET['id'],
                 'opinion' => $_POST['message'],
@@ -13,7 +14,7 @@ class ControladorReview
             $agregar = new ModeloReview();
             $res = $agregar->agregarReviewsModelo($dato);
             if ($res == true) {
-                echo "<script type='text/javascript'>window.location.href = 'inicio';</script>";
+                echo "<script type='text/javascript'>window.location.href = 'index.php?action=detalles&id=$id;</script>";
             }
         }
         $listar = new ModeloReview();

@@ -22,7 +22,21 @@ class ControladorCarrito
             $agregar = new ModeloCarrito();
             $res = $agregar->agregarProductoCarritoModelo($dato);
             if ($res == true) {
-                echo "<script type='text/javascript'>window.location.href = 'cart';</script>";
+                
+                $ultimoid = $agregar->obtenerUltimoIdModelo();
+                $dato = array(
+                    'id' => $ultimoid[0]['MAX(id_carrito)'],
+                    'token' => $GLOBALS['codigo_global'],
+                    'men' => $_GET['mess'],
+                    'date' => $_GET['date'],
+                    'time' => $_GET['time'],
+                    'box' => $_GET['box']
+                );
+                $mensaje = new ControladorMensaje();
+                $res_mensaje = $mensaje->agregarCarritoMensaje($dato);
+                if ($res_mensaje == true) {
+                    echo "<script type='text/javascript'>window.location.href = 'cart';</script>";
+                }
             }
         }
 

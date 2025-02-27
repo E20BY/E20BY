@@ -5,7 +5,7 @@
             📞 <a href="tel:+17863974240">+1 (786) 397-4240</a>
         </div>
         <div class="contact-info">
-            📧 <a href="mailto:contacto@flores.com">contacto@flores.com</a>
+            📧 <a href="mailto:flowerse20miami@gmail.com">flowerse20miami@gmail.com</a>
         </div>
         <!--<div class="contact-info">
             📍 <a href="https://www.google.com/maps?q=Calle+Falsa+123,+Ciudad+Jardín" target="_blank">Calle Falsa 123, Ciudad Jardín</a>
@@ -58,8 +58,8 @@ if (isset($_POST['name'])) {
             $mail->Port = 587;
 
             // Configuración del remitente y destinatario
-            $mail->setFrom('feliperenjifoz@gmail.com', 'E20FLOWERS');
-            $mail->addAddress('anasofiaochicamartinez@gmail.com', 'E20FLOWERS');
+            $mail->setFrom('flowerse20miami@gmail.com', 'E20FLOWERS');
+            $mail->addAddress('flowerse20miami@gmail.com', 'E20FLOWERS');
             $mail->addAddress($_POST['email'], 'E20FLOWERS');
             // Contenido del correo
             $mail->isHTML(true);

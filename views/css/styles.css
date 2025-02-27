@@ -21,32 +21,6 @@ body {
     font-size: 18px;
 }
 
-.hero {
-    text-align: center;
-    font-size: 30px;
-    padding: 20px;
-    background: #f490c6;
-    color: white;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 1000px;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    min-height: 50px;
-}
-
-.hero span {
-    display: block;
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.hero span.active {
-    opacity: 1;
-}
 
 
 .filters {
@@ -383,6 +357,15 @@ footer {
     }
 }
 
+@media (max-width: 400px) {
+    footer {
+        width: 90%;
+        /* Se hace más pequeño en móviles */
+        max-width: 200px;
+        /* Límite de ancho */
+    }
+}
+
 
 /*////////////////*/
 
@@ -471,7 +454,7 @@ header span {
 /* Botones */
 button,
 .pedido-button {
-    background: #ff1493;
+    background: #f490c6;
     color: white;
     padding: 10px;
     border: none;
@@ -546,7 +529,7 @@ thead {
 
 thead th {
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 
 tbody td {
@@ -574,14 +557,6 @@ tbody td {
         align-items: center;
     }
 
-    .hero {
-        font-size: 16px;
-        width: 90%;
-        /* Se hace más pequeño en móviles */
-        max-width: 300px;
-        /* Límite de ancho */
-    }
-
     .product-list {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
@@ -590,14 +565,6 @@ tbody td {
 @media (max-width: 370px) {
     .menu a {
         font-size: 16px;
-    }
-
-    .hero {
-        font-size: 14px;
-        width: 90%;
-        /* Se hace más pequeño en móviles */
-        max-width: 300px;
-        /* Límite de ancho */
     }
 
     .product-list {
@@ -619,14 +586,6 @@ tbody td {
     .menu a {
         display: block;
         margin: 5px 0;
-    }
-
-    .hero {
-        font-size: 15px;
-        width: 90%;
-        /* Se hace más pequeño en móviles */
-        max-width: 300px;
-        /* Límite de ancho */
     }
 
     .filters select,
@@ -939,6 +898,7 @@ tbody td {
 
 /* Contenedor de los botones flotantes */
 #container-btn {
+    margin-top: 15px;
     position: fixed;
     top: 15px;
     right: 15px;
@@ -962,13 +922,14 @@ tbody td {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin-top: 15px;
     /* 🔽 Mueve el carrito 200px a la izquierda */
     margin-right: 92px;
 }
 
 @media (max-width: 401px) and (max-width: 500px) {
     #cart {
+        margin-top: 12px;
         margin-right: 62px;
         font-size: 10px;
     }
@@ -976,6 +937,7 @@ tbody td {
 
 @media (max-width: 300px) {
     #cart {
+        margin-top: 10px;
         font-size: 10px;
         margin-right: 62px;
     }
@@ -1010,6 +972,7 @@ tbody td {
     #btnIdioma {
         margin-right: -5px;
         font-size: 10px;
+        margin-top: 3px;
     }
 }
 
@@ -1017,6 +980,7 @@ tbody td {
     #btnIdioma {
         margin-right: -5px;
         font-size: 10px;
+        margin-top: 5px;
     }
 }
 
@@ -1037,7 +1001,7 @@ body {
     padding: 15px 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 15px 15px 15px 15px;
-    width: 500px;
+    width: 700px;
     margin: 0 auto;
     /* Esto lo centra */
     justify-content: center;
@@ -1117,6 +1081,15 @@ body {
 
     .menu.open .menu-toggle div:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+@media (max-width: 400px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+        width: 200px;
     }
 }
 
@@ -1274,6 +1247,7 @@ header {
 
 /* Posiciona los iconos de redes sociales en la parte superior izquierda */
 .social-icons {
+    margin-top: 20px;
     position: fixed;
     top: 15px;
     left: 10px;
@@ -1301,7 +1275,7 @@ header {
 @media (max-width: 768px) {
     .social-icons a {
         padding: 6px 12px;
-        margin-top: 8px;
+        margin-top: 10px;
     }
 }
 
@@ -1309,101 +1283,17 @@ header {
     .social-icons a {
         font-size: 15px;
         padding: 4px 9px;
-        margin-top: 6px;
+        margin-top: -3px;
     }
 }
 
 .hero {
     text-align: center;
-    font-size: 30px;
-    padding: 20px;
+    display: flex;
+    gap: 10px;
     background: #f490c6;
     color: white;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 1000px;
     border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    min-height: 80px;
-    /* Ajustar altura mínima */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero span {
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    text-align: center;
-    font-size: 2rem;
-    /* Tamaño base del texto */
-    padding: 10px;
-}
-
-/* Tamaño para pantallas pequeñas (hasta 300px) */
-@media (max-width: 300px) {
-    .hero {
-        min-height: 50px;
-        padding: 8px;
-    }
-
-    .hero span {
-        font-size: 10px;
-    }
-}
-
-/* Tamaño para pantallas medianas (hasta 500px) */
-@media (max-width: 500px) {
-    .hero {
-        min-height: 60px;
-        padding: 13px;
-    }
-
-    .hero span {
-        font-size: 1rem;
-    }
-}
-
-/* Tamaño para pantallas grandes (hasta 1200px) */
-@media (max-width: 1200px) {
-    .hero {
-        min-height: 70px;
-        padding: 18px;
-    }
-
-    .hero span {
-        font-size: 1.8rem;
-    }
-}
-
-/* Mantener el tamaño en pantallas más grandes de 1200px */
-@media (min-width: 1201px) {
-    .hero {
-        min-height: 80px;
-    }
-
-    .hero span {
-        font-size: 2rem;
-    }
-}
-
-.hero {
-    text-align: center;
-    font-size: 30px;
-    padding: 20px;
-    background: #f490c6;
-    color: white;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 1000px;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    min-height: 80px;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -1429,7 +1319,6 @@ header {
     font-size: 10px;
     cursor: pointer;
     border-radius: 50%;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -1480,33 +1369,22 @@ header {
 
 .hero {
     text-align: center;
-    font-size: 18px;
-    /* Reducido desde 30px */
-    padding: 3px;
-    /* Menos padding para hacerlo más delgado */
+    display: flex;
+    gap: 10px;
     background: #f490c6;
     color: white;
-    margin: 15px auto;
-    /* Reduje el margen */
-    width: 80%;
-    max-width: 1000px;
     border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    min-height: 30px;
-    /* Menos alto */
-    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .hero span {
     position: absolute;
-    width: 100%;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
     text-align: center;
     font-size: 18px;
+    z-index: 1000;
     /* Reducido desde 30px */
 }
 
@@ -1515,11 +1393,33 @@ header {
     opacity: 1;
 }
 
+@media (max-width: 1200px) {
+    .hero {
+        min-height: 30px;
+        padding: 9px;
+    }
+
+    .hero span {
+        font-size: 15px;
+    }
+}
+
+/* Mantener el tamaño en pantallas más grandes de 1200px */
+@media (min-width: 1201px) {
+    .hero {
+        min-height: 30px;
+    }
+
+    .hero span {
+        font-size: 15px;
+    }
+}
+
 /* 📱 Ajustes para pantallas pequeñas */
 @media (max-width: 500px) {
     .hero {
         font-size: 10px;
-        min-height: 30px;
+        min-height: 10px;
         /* Aún más delgado en móviles */
     }
 
@@ -1564,6 +1464,7 @@ header {
     #btnLogin {
         margin-right: -10px;
         font-size: 10px;
+        margin-top: 3px;
     }
 }
 
@@ -2677,4 +2578,311 @@ textarea:focus {
     .menu2 {
         width: 300px;
     }
+}
+
+#envioDelibery {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    border: 2px solid #ff91c1;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#envioDelibery:hover {
+    border-color: #ff91c1;
+    background: #fffae6;
+}
+
+#envioDelibery:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px #ff91c1;
+}
+
+/* Personalización de las opciones */
+#envioDelibery option {
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    padding: 10px;
+}
+
+/* Estilo para el contenedor */
+.envio-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Ícono para mejorar el diseño */
+.envio-icon {
+    font-size: 20px;
+    color: #ff91c1;
+}
+
+.detalle-producto {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.contenedor-producto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Ajuste de imagen del producto */
+.imagen-producto img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+/* Información del producto */
+.info-producto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.precio {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Botón de agregar al carrito */
+.agregar-carrito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.agregar-cart {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.timecart {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.info-checks {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-agregar {
+    background-color: #ff8000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Estilos para la sección inferior */
+.detalle-inferior {
+    margin-top: 40px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* Estilos de las pestañas */
+.tabs {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    border-bottom: 2px solid #ddd;
+    justify-content: center;
+}
+
+.tabs li {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tabs li.activo {
+    background: #f7931e;
+    color: white;
+    font-weight: bold;
+}
+
+.contenido-tab {
+    display: none;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.contenido-tab.activo {
+    display: block;
+}
+
+/* Estilos para los botones de cantidad */
+.btn-restar,
+.btn-sumar,
+.btn-plus,
+.btn-minus,
+.btn-danger {
+    width: 40px;
+}
+
+.cantidad {
+    width: 80px;
+    text-align: center;
+}
+
+/* 🔹 RESPONSIVE DESIGN 🔹 */
+
+/* ✅ Para pantallas pequeñas (hasta 750px) */
+@media screen and (max-width: 750px) {
+    .contenedor-producto {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .imagen-producto img {
+        max-width: 100%;
+        width: 300px;
+    }
+
+    .info-producto {
+        width: 100%;
+    }
+
+    .tabs {
+        justify-content: center;
+    }
+
+    .tabs li {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .btn-agregar {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* ✅ Para pantallas muy pequeñas (hasta 500px) */
+@media screen and (max-width: 500px) {
+    .imagen-producto img {
+        width: 250px;
+    }
+
+    .precio {
+        font-size: 20px;
+    }
+
+    .btn-agregar {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .tabs li {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+/* ✅ Para móviles ultra pequeños (hasta 300px) */
+@media screen and (max-width: 300px) {
+
+    .imagen-producto img {
+        width: 200px;
+    }
+
+    .precio {
+        font-size: 18px;
+    }
+
+    .btn-agregar {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .tabs li {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+}
+
+.url {
+    text-decoration: underline;
+}
+
+.timecart-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Estilos de timecart */
+.timecart {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff8e1;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #ff91c1;
+    box-shadow: 0px 4px 10px rgba(255, 128, 0, 0.2);
+    max-width: 300px;
+    width: 100%; /* Para que se ajuste mejor en móviles */
+    font-family: "Arial", sans-serif;
+}
+
+.timecart label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.timecart input,
+.timecart select {
+    width: 95%;
+    padding: 10px;
+    border: 2px solid #ff91c1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.timecart input:hover,
+.timecart select:hover {
+    border-color: #ff91c1;
+    background: #fffae6;
+}
+
+.timecart input:focus,
+.timecart select:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px #ff91c1;
+}
+
+.timecart select option {
+    font-size: 14px;
+    padding: 5px;
 }

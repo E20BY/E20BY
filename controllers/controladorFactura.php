@@ -47,19 +47,25 @@ class ControladorFactura
             $listarCli = new ControladorCliente();
             $res = $listarCli->listarclientetoken($GLOBALS['codigo_global']);
 
+            $listarMenss = new ControladorMensaje();
+            $resMenss = $listarMenss->listarMensajeToken($GLOBALS['codigo_global']);
+
             // Listar información de la venta
             $lis = new ControladorVenta();
             $resventa = $lis->listarVentaFactura($id[0]['MAX(id_factura)']);
-            if ($res && $resventa) {
+            if ($res && $resventa && $resMenss) {
                 $cliente = $res[0];
                 $venta = $resventa[0];
+                $mess = $resMenss[0];
 
                 // Información del cliente
                 $nombres = $cliente['nombres'] . ' ' . $cliente['apellidos'];
                 $correo = $cliente['correo'];
                 $telefono = $cliente['tel'];
                 $direccion = $cliente['dire1'];
+                $comple = $cliente['dire2'];
                 $ciudad = $cliente['ciudad'];
+                $barrio = $cliente['barrio'];
 
                 // Información de la venta
                 $producto = $venta['nombre'];
@@ -68,12 +74,22 @@ class ControladorFactura
                 $precioTotal = $venta['precio_cantidad'];
                 $idFactura = $venta['id_factura'];
 
+                // Informacion tarjeta
+                $box = $mess['box'];
+                $tarjeta = $mess['mensaje'];
+                $fecha = $mess['fecha'];
+                $hora = $mess['hora'];
+
                 // Crear el contenido de la factura en HTML
                 $facturaHTML = "
         <h1>Factura Electrónica</h1>
         <p><strong>Cliente:</strong> $nombres</p>
         <p><strong>Teléfono:</strong> $telefono</p>
-        <p><strong>Dirección:</strong> $direccion, $ciudad</p>
+        <p><strong>Dirección:</strong> $direccion, $ciudad, $barrio, $comple</p>
+        <p><strong>Caja:</strong> $box</p>
+        <p><strong>Mensaje Tarjeta:</strong> $tarjeta</p>
+        <p><strong>Fecha:</strong> $fecha</p>
+        <p><strong>Hora:</strong> $hora</p>
         <hr>
         <h2>Detalles de la Compra</h2>
         <table border='1' cellpadding='10' cellspacing='0'>

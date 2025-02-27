@@ -26,24 +26,27 @@ $reviews->agregarReview();
     <div class="product-list" id="product-list">
         <?php
         foreach ($res as $key => $value) {
+            if ($value['categoria'] == 'Flawers') {
         ?>
-            <div class="product" data-price="<?php echo $value['precio'] ?>" data-quantity="<?php echo $value['cantidad_flores'] ?>">
-                <img src="<?php echo $value['foto_protada'] ?>"
-                    alt="<?php echo $value['nombre'] ?>" class="product-img">
+                <div class="product" data-price="<?php echo $value['precio'] ?>" data-quantity="<?php echo $value['cantidad_flores'] ?>">
+                    <img src="<?php echo $value['foto_protada'] ?>"
+                        alt="<?php echo $value['nombre'] ?>" class="product-img">
 
-                <img src="<?php echo $value['foto1'] ?>"
-                    alt="<?php echo $value['nombre'] ?>" class="product-img hover-img">
-                <h2 id="Ramo_de_Rosasu"><?php echo $value['producto'] ?></h2>
-                <p>$<?php echo number_format($value['precio'], 2) ?></p>
-                <p><?php echo $value['cantidad_flores'] ?> flores</p>
-                <div class="contenerdor-botones">
-                <div class="row">
+                    <img src="<?php echo $value['foto1'] ?>"
+                        alt="<?php echo $value['nombre'] ?>" class="product-img hover-img">
+                    <h2 id="Ramo_de_Rosasu"><?php echo $value['producto'] ?></h2>
+                    <input type="hidden" name="id" value="<?php echo $value['id_producto'] ?>">
+                    <p>$<?php echo number_format($value['precio'], 2) ?></p>
+                    <p><?php echo $value['cantidad_flores'] ?> flores</p>
+                    <div class="contenerdor-botones">
+                        <!--<div class="row">
                         <div class="col"><button class="traducible boton-reviews" id="" data-traduccion="botonReviews"><a href="index.php?action=inicio&id=<?php echo $value['id_producto'] ?>">Reviews</a></button></div>
                         <div class="col"><button><a href="index.php?action=cart&id=<?php echo $value['id_producto'] ?>" class="traducible" data-traduccion="botonCarrito">Añadir al carrito</a></button></div>
+                    </div>-->
                     </div>
                 </div>
-            </div>
         <?php
+            }
         }
         ?>
     </div>
@@ -98,8 +101,8 @@ $reviews->agregarReview();
             product.style.display = show ? "block" : "none";
         });
     }
-    
-    document.addEventListener("DOMContentLoaded", () => {
+
+    /*document.addEventListener("DOMContentLoaded", () => {
         const params = new URLSearchParams(window.location.search);
 
         // Verificar si existe el parámetro 'id' en la URL
@@ -141,5 +144,5 @@ $reviews->agregarReview();
         document.getElementById("Ramo_de_Rosas").textContent = etiquetasTraducciones[idioma].Ramo_de_Rosas;
         document.getElementById("Tulipanes_Elegantes").textContent = etiquetasTraducciones[idioma].Tulipanes_Elegantes;
         document.getElementById("Orquídeas_de_Lujo").textContent = etiquetasTraducciones[idioma].Orquídeas_de_Lujo;
-    });
+    });*/
 </script>
