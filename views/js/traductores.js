@@ -72,7 +72,8 @@ const traducciones = {
         box2: "Recomendacion De La Caja",
         infoDes: "Información",
         infoDes1: "Descripción Producto",
-        infoDes2: "Información Adicional"
+        infoDes2: "Información Adicional",
+        metodoentrega: "Selecciona el método de entrega:"
     },
     en: {
         direccionEnvio: "Shipping Address",
@@ -144,7 +145,8 @@ const traducciones = {
         box2: "Recommendation",
         infoDes: "Information",
         infoDes1: "Product description",
-        infoDes2: "Additional information"
+        infoDes2: "Additional information",
+        metodoentrega: "Select the delivery method:"
     }
 };
 
@@ -195,6 +197,7 @@ function cambiarIdioma(idioma) {
         document.getElementById("realizarPedido").textContent = traducciones[idioma].realizarPedido;
         document.getElementById("tax1").textContent = traducciones[idioma].tax1;
         document.getElementById("tax2").textContent = traducciones[idioma].tax2;
+        document.getElementById("metodoentrega").textContent = traducciones[idioma].metodoentrega;
     }
 
     if (document.getElementById("selectPreci")) {

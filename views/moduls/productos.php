@@ -5,7 +5,7 @@ $precio = $agregar->listarPrecioFiltro();
 $reviews = new ControladorReview();
 $reviews->agregarReview();
 ?>
-<div class="filters">
+<!--<div class="filters">
     <label for="price-filter" id="selectPreci">Filtrar por precio:</label>
     <select id="price-filter" onchange="filterProducts()">
         <option value="all" id="optionAll">Todos</option>
@@ -20,7 +20,7 @@ $reviews->agregarReview();
 
     <label for="quantity-filter" id="tableCat">Filtrar por cantidad de flores:</label>
     <input type="number" id="quantity-filter" min="1" placeholder="Example: 10" oninput="filterProducts()">
-</div>
+</div>-->
 
 <main>
     <div class="product-list" id="product-list">
@@ -37,7 +37,7 @@ $reviews->agregarReview();
                     <h2 id="Ramo_de_Rosasu"><?php echo $value['producto'] ?></h2>
                     <input type="hidden" name="id" value="<?php echo $value['id_producto'] ?>">
                     <p>$<?php echo number_format($value['precio'], 2) ?></p>
-                    <p><?php echo $value['cantidad_flores'] ?> flores</p>
+                    <p><?php echo $value['descripcion'] ?></p>
                     <div class="contenerdor-botones">
                         <!--<div class="row">
                         <div class="col"><button class="traducible boton-reviews" id="" data-traduccion="botonReviews"><a href="index.php?action=inicio&id=<?php echo $value['id_producto'] ?>">Reviews</a></button></div>

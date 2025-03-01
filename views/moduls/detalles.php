@@ -44,7 +44,7 @@ $resRev = $reviews->listarReviewsId();
         </div>
         <div class="info-producto">
             <h1><?php echo $res[0]['producto'] ?></h1>
-            <p class="precio">$<?php echo number_format($res[0]['precio'], 0) ?></p>
+            <p class="precio">$<?php echo number_format($res[0]['precio'], 2) ?></p>
             <p class="descripcion">
             <p id=""><?php echo $res[0]['descripcion'] ?></span></p>
             </p>
@@ -57,7 +57,7 @@ $resRev = $reviews->listarReviewsId();
             </div>
             <div class="timecart-container">
                 <div class="timecart">
-                    <label>Pick a delivery date:</label>
+                    <label>Select a delivery date:</label>
                     <input type="date" name="fecha">
                     <select name="hora" id="">
                         <option value="">Select Time</option>
@@ -76,11 +76,10 @@ $resRev = $reviews->listarReviewsId();
                 <p class="url" id="estamos">📞 ¡Estamos aquí para ayudar!</p>
             </div>
         </div>
-        <p style="text-align: center;">
-        <p id="descridetalle" style="text-align: center;">"We value every detail for our customers. If you have specific requests for your product, please let us know in the recommendations box.Customer satisfaction is our priority"</p>
-        </p>
     </div>
-
+    <p>
+        <p id="descridetalle" >"We value every detail for our customers. If you have specific requests for your product, please let us know in the recommendations box.Customer satisfaction is our priority"</p>
+        </p>
     <div class="detalle-inferior">
         <ul class="tabs">
             <li class="activo" id="box1">Recomendación</li>

@@ -100,21 +100,38 @@ $cart = $carrito->countCarrito();
             foreach ($res as $key => $value) {
             ?>
                 <p><span><?php echo "" . ($key + 1) . ". " . $value['nombre'] ?></span>
-                    <span>$<?php echo number_format($cont[0]['SUM(precio*cantidad)'], 0) ?></span>
+                    <span>$<?php echo number_format($value['precio_carrito']*$value['cant_carrito'], 2) ?></span>
                 </p>
             <?php
             }
             ?>
 
-            <p>
-                <span id="envio">Envío:</span>
-                <select id="envioDelibery" class="">
-                    <option value="15" id="tax1">Normal - $15.00</option>
-                    <option value="45" id="tax2">Express - $45.00</option>
+            <p><strong id="metodoentrega">Selecciona el método de entrega:</strong></p>
+            <div class="metodo-entrega">
+                <div id="btnEnvio" class="opcion">
+                    <img src="https://cdn-icons-png.flaticon.com/128/743/743131.png" alt="Envío" title="Envío a domicilio">
+                </div>
+                <div id="btnLocal" class="opcion">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2838/2838912.png" alt="Recoger en Local" title="Recoger en local">
+                </div>
+            </div>
+
+            <!-- Opciones dinámicas -->
+            <p id="opcionEnvio">
+                <span id="envio">Tipo de Envío:</span>
+                <br>
+                <select id="envioDelibery">
+                    <option id="tax1" value="15">Normal - $15.00</option>
+                    <option id="tax2" value="45">Express - $45.00</option>
                 </select>
             </p>
 
-            <p><span>Taxes (7%):</span> <span id="taxes">$0</span></p>
+            <p id="opcionLocal">
+                <strong>Dirección:</strong> 1050 Sw 11 street Miami FI 33129 <br>
+                <strong>Teléfono:</strong> +1 (786) 397-4240
+            </p>
+
+            <p><span>Estimated tax to be collected:</span> <span id="taxes">$0</span></p>
 
             <p>
                 <span id="total">Total:</span>
@@ -130,27 +147,66 @@ $cart = $carrito->countCarrito();
 </form>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        const btnEnvio = document.getElementById("btnEnvio");
+        const btnLocal = document.getElementById("btnLocal");
         const envioSelect = document.getElementById("envioDelibery");
+        const opcionEnvio = document.getElementById("opcionEnvio");
+        const opcionLocal = document.getElementById("opcionLocal");
         const taxesElement = document.getElementById("taxes");
         const totalElement = document.getElementById("totalPed");
 
-        let subtotal = <?php echo $cont[0]['SUM(precio*cantidad)']; ?>; // Precio total productos
+        let subtotal = 0; // Inicializamos el subtotal en 0
+
+        <?php
+        // Calcular el subtotal sumando los productos en el `foreach`
+        $subtotal = 0;
+        foreach ($res as $key => $value) {
+            $subtotal += $value['precio_carrito'] * $value['cant_carrito'];
+        ?>
+            console.log("Producto: <?php echo $value['nombre']; ?>, Precio: <?php echo $value['precio']; ?>, Cantidad: <?php echo $value['cantidad']; ?>");
+        <?php
+        }
+        ?>
+
+        // Asignamos el subtotal calculado desde PHP a JavaScript
+        subtotal = <?php echo number_format($subtotal, 2, '.', ''); ?>;
+        let metodoSeleccionado = ""; // Guarda si es 'envio' o 'local'
 
         function actualizarTotal() {
-            let envio = parseFloat(envioSelect.value);
+            let envio = metodoSeleccionado === "envio" ? parseFloat(envioSelect.value) : 0;
             let taxes = (subtotal + envio) * 0.07; // 7% de impuestos
             let total = subtotal + envio + taxes;
-
-            taxesElement.textContent = `$${new Intl.NumberFormat().format(taxes.toFixed(0))}`;
-            totalElement.textContent = `$${new Intl.NumberFormat().format(total.toFixed(0))}`;
+            taxesElement.textContent = `$${new Intl.NumberFormat().format(taxes.toFixed(2))}`;
+            totalElement.textContent = `$${new Intl.NumberFormat().format(total.toFixed(2))}`;
         }
 
-        // Detectar cambios en el select de envío
+        // Evento al hacer clic en "Envío"
+        btnEnvio.addEventListener("click", function() {
+            metodoSeleccionado = "envio";
+            opcionEnvio.style.display = "block";
+            opcionLocal.style.display = "none";
+            btnEnvio.classList.add("seleccionado");
+            btnLocal.classList.remove("seleccionado");
+            actualizarTotal();
+        });
+
+        // Evento al hacer clic en "Entrega en Local"
+        btnLocal.addEventListener("click", function() {
+            metodoSeleccionado = "local";
+            opcionEnvio.style.display = "none";
+            opcionLocal.style.display = "block";
+            btnLocal.classList.add("seleccionado");
+            btnEnvio.classList.remove("seleccionado");
+            actualizarTotal();
+        });
+
+        // Detectar cambios en el tipo de envío
         envioSelect.addEventListener("change", actualizarTotal);
 
-        // Inicializar el cálculo al cargar
+        // Inicializar cálculo
         actualizarTotal();
     });
+
 
 
     /*document.getElementById('buyerEmail').addEventListener('input', function() {

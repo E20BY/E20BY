@@ -41,7 +41,7 @@ body {
 .product-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 10px;
     padding: 20px;
     max-width: 1200px;
     margin: auto;
@@ -71,7 +71,7 @@ body {
 }
 
 .product button {
-    background: #ffb6c1;
+    background: #f490c6;
     color: white;
     padding: 10px;
     border: none;
@@ -84,7 +84,7 @@ a {
 }
 
 .product button:hover {
-    background: #f490c6;
+    background: #ffb6c1;
 }
 
 .contact-container,
@@ -211,7 +211,7 @@ table {
 }
 
 thead {
-    background: #ff1493;
+    background: #ff7f9e;
     color: white;
 }
 
@@ -235,7 +235,7 @@ tbody td {
 }
 
 button {
-    background: #ff1493;
+    background: #ff7f9e;
     color: white;
     padding: 10px;
     border: none;
@@ -244,7 +244,7 @@ button {
 }
 
 button:hover {
-    background: #e0546d;
+    background: #ffb6c1;
 }
 
 .contenido {
@@ -317,7 +317,7 @@ button:hover {
 
 /* Botón */
 .pedido-button {
-    background: #ff1493;
+    background: #ff7f9e;
     color: white;
     padding: 12px;
     border: none;
@@ -329,14 +329,14 @@ button:hover {
 }
 
 .pedido-button:hover {
-    background: #e60073;
+    background: #ffb6c1;
 }
 
 
 footer {
     text-align: center;
     padding: 20px;
-    background: #f490c6;
+    background: #ffb6c1;
     color: white;
     margin: 20px auto;
     /* Centrar horizontalmente */
@@ -433,8 +433,8 @@ header span {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    padding: 20px;
-    max-width: 800px;
+    padding: 40px;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -454,7 +454,7 @@ header span {
 /* Botones */
 button,
 .pedido-button {
-    background: #f490c6;
+    background: #ffb6c1;
     color: white;
     padding: 10px;
     border: none;
@@ -467,7 +467,7 @@ button,
 
 button:hover,
 .pedido-button:hover {
-    background: #e0546d;
+    background: #ff7f9e;
 }
 
 /* Formulario de contacto */
@@ -523,7 +523,7 @@ table {
 }
 
 thead {
-    background: #ff1493;
+    background: #ff7f9e;
     color: white;
 }
 
@@ -911,7 +911,7 @@ tbody td {
 
 /* Estilos del carrito */
 #cart {
-    background-color: #f490c6;
+    background-color: #ffb6c1;
     color: white;
     padding: 8px 12px;
     border-radius: 20px;
@@ -945,7 +945,7 @@ tbody td {
 
 /* Estilos del botón de idioma */
 #btnIdioma {
-    background-color: #f490c6;
+    background-color: #ffb6c1;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -964,7 +964,7 @@ tbody td {
 }
 
 #btnIdioma:hover {
-    background-color: #e91e63;
+    background-color: #ff7f9e;
     transform: scale(1.1);
 }
 
@@ -1262,14 +1262,14 @@ header {
     color: white;
     font-size: 18px;
     text-decoration: none;
-    background: #f490c6;
+    background: #ffb6c1;
     padding: 10px 16px;
     border-radius: 90%;
     transition: 0.3s ease-in-out;
 }
 
 .social-icons a:hover {
-    background: #613318;
+    background: #ff7f9e;
 }
 
 @media (max-width: 768px) {
@@ -1430,7 +1430,7 @@ header {
 
 
 #btnLogin {
-    background-color: #f490c6;
+    background-color: #ffb6c1;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -1449,7 +1449,7 @@ header {
 }
 
 #btnLogin:hover {
-    background-color: #e91e63;
+    background-color: #ff7f9e;
     transform: scale(1.1);
 }
 
@@ -1952,7 +1952,7 @@ header {
 }
 
 .table thead {
-    background-color: #ff3f85;
+    background-color: #ff7f9e;
     color: white;
 }
 
@@ -1981,13 +1981,13 @@ header {
 /* 🔹 Estilo de los botones de eliminar */
 .eliminar-button-producto {
     cursor: pointer;
-    color: #ff3f85;
+    color: #ff7f9e;
     font-size: 18px;
     transition: 0.3s ease;
 }
 
 .eliminar-button-producto:hover {
-    color: #ff5fa8;
+    color: #ffb6c1;
     transform: scale(1.1);
 }
 
@@ -2243,9 +2243,11 @@ header {
     width: fit-content;
 }
 
-.product-img {
+.product-img,
+.hover-img {
     display: block;
-    width: 100%;
+    width: 80%;
+    height: 75%; /* Ajusta según el tamaño deseado */
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -2263,6 +2265,7 @@ header {
 .product:hover .product-img:first-child {
     opacity: 0;
 }
+
 
 .contenedor-botones {
     display: flex;
@@ -2355,7 +2358,7 @@ textarea:focus {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    width: 300px;
+    width: 200px;
     padding: 15px;
     background: white;
     border-radius: 10px;
@@ -2719,7 +2722,7 @@ textarea:focus {
 }
 
 .tabs li.activo {
-    background: #f7931e;
+    background: #ff7f9e;
     color: white;
     font-weight: bold;
 }
@@ -2841,7 +2844,6 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: #fff8e1;
     padding: 15px;
     border-radius: 10px;
     border: 2px solid #ff91c1;
@@ -2885,4 +2887,38 @@ textarea:focus {
 .timecart select option {
     font-size: 14px;
     padding: 5px;
+}
+
+.metodo-entrega {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.opcion {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    transition: 0.3s;
+}
+
+.opcion img {
+    width: 50px;
+    height: 50px;
+}
+
+.opcion.seleccionado {
+    border-color: #ff4081;
+    background-color: #ffe6ec;
+}
+
+#opcionEnvio, #opcionLocal {
+    display: none;
+    margin-top: 10px;
 }

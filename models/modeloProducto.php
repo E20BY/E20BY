@@ -45,7 +45,7 @@ class ModeloProducto
 
     function listarProductosModelo()
     {
-        $sql = "SELECT *, categoria.nombre AS categoria, productos.nombre AS producto FROM $this->tabla INNER JOIN categoria ON categoria.id_categoria = productos.id_categoria INNER JOIN fotos_producto ON fotos_producto.id_producto = productos.id_producto ORDER BY `productos`.`precio` ASC";
+        $sql = "SELECT *, categoria.nombre AS categoria, productos.nombre AS producto FROM $this->tabla INNER JOIN descripcion_producto ON descripcion_producto.id_producto = productos.id_producto INNER JOIN categoria ON categoria.id_categoria = productos.id_categoria INNER JOIN fotos_producto ON fotos_producto.id_producto = productos.id_producto ORDER BY `productos`.`precio` ASC";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
         try {

@@ -610,12 +610,18 @@ document.getElementById('btnAgregarCarrito').addEventListener('click', function 
     event.preventDefault(); // Evitar comportamiento predeterminado
 
     // Obtener los valores de los inputs
-    const id = document.querySelector('input[name="id"]').value;
-    const cantidad = document.querySelector('input[name="cant"]').value;
-    const mess = document.querySelector('textarea[name="mensaje"]').value;
-    const date = document.querySelector('input[name="fecha"]').value;
-    const time = document.querySelector('select[name="hora"]').value;
-    const box = document.querySelector('textarea[name="box"]').value;
+    const id = document.querySelector('input[name="id"]').value.trim();
+    const cantidad = document.querySelector('input[name="cant"]').value.trim();
+    const mess = document.querySelector('textarea[name="mensaje"]').value.trim();
+    const date = document.querySelector('input[name="fecha"]').value.trim();
+    const time = document.querySelector('select[name="hora"]').value.trim();
+    const box = document.querySelector('textarea[name="box"]').value.trim();
+
+    // Verificar si algún campo está vacío
+    if (!id || !cantidad || !mess || !date || !time || !box) {
+        alert("Por favor, completa todos los campos antes de continuar.");
+        return; // No redirigir si falta información
+    }
 
     // Crear la URL con los parámetros GET
     const url = `index.php?action=cart&id=${encodeURIComponent(id)}&cant=${encodeURIComponent(cantidad)}&mess=${encodeURIComponent(mess)}&date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}&box=${encodeURIComponent(box)}`;
