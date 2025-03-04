@@ -36,6 +36,16 @@ $resRev = $reviews->listarReviewsId();
         }
 
     }
+
+    @media screen and (max-width: 390px) {
+
+        .reseñas,
+        .formulario {
+            flex: 1;
+            min-width: 240px;
+            /* Evita que se reduzcan demasiado */
+        }
+    }
 </style>
 <section class="detalle-producto">
     <div class="contenedor-producto">
@@ -43,10 +53,10 @@ $resRev = $reviews->listarReviewsId();
             <img src="<?php echo $res[0]['foto_protada'] ?>" alt="Imagen del producto">
         </div>
         <div class="info-producto">
-            <h1><?php echo $res[0]['producto'] ?></h1>
+            <h1 id="<?php echo $res[0]['prefijoi_nom'] ?>"><?php echo $res[0]['producto'] ?></h1>
             <p class="precio">$<?php echo number_format($res[0]['precio'], 2) ?></p>
             <p class="descripcion">
-            <p id=""><?php echo $res[0]['descripcion'] ?></span></p>
+            <p id="<?php echo $res[0]['prefijo_descrip'] ?>"><?php echo $res[0]['descripcion'] ?></span></p>
             </p>
             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
             <div class="agregar-carrito">
@@ -57,10 +67,10 @@ $resRev = $reviews->listarReviewsId();
             </div>
             <div class="timecart-container">
                 <div class="timecart">
-                    <label>Select a delivery date:</label>
+                    <label id="selectdate">Select a delivery date:</label>
                     <input type="date" name="fecha">
                     <select name="hora" id="">
-                        <option value="">Select Time</option>
+                        <option value="" id="selectime">Select Time</option>
                         <option value="8:30 AM - 02:00 PM">8:30 AM - 02:00 PM</option>
                         <option value="2:00 PM - 06:30 PM">2:00 PM - 06:30 PM</option>
                     </select>
@@ -78,8 +88,8 @@ $resRev = $reviews->listarReviewsId();
         </div>
     </div>
     <p>
-        <p id="descridetalle" >"We value every detail for our customers. If you have specific requests for your product, please let us know in the recommendations box.Customer satisfaction is our priority"</p>
-        </p>
+    <p id="descridetalle">"We value every detail for our customers. If you have specific requests for your product, please let us know in the recommendations box.Customer satisfaction is our priority"</p>
+    </p>
     <div class="detalle-inferior">
         <ul class="tabs">
             <li class="activo" id="box1">Recomendación</li>
@@ -130,19 +140,19 @@ $resRev = $reviews->listarReviewsId();
 
                     <div class="col-md-6 formulario">
                         <h4 class="mb-4">Deja una reseña</h4>
-                        <small>Tu dirección de correo electrónico no será publicada. Los campos obligatorios están marcados con *</small>
+                        <small id="small">Tu dirección de correo electrónico no será publicada. Los campos obligatorios están marcados con *</small>
                         <form method="post">
                             <div class="form-group">
                                 <label for="message">Tu opinión *</label>
-                                <textarea id="message" name="message" cols="30" rows="5" class="form-control"></textarea>
+                                <textarea id="message" required name="message" cols="30" rows="5" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="name">Su nombre *</label>
-                                <input type="text" class="form-control" name="name" id="name">
+                                <input type="text" required class="form-control" name="name" id="name">
                             </div>
                             <div class="form-group">
                                 <label for="email">Su correo electrónico *</label>
-                                <input type="email" class="form-control" name="email" id="email">
+                                <input type="email" required class="form-control" name="email" id="email">
                             </div>
                             <div class="form-group mb-0">
                                 <input type="submit" name="agregarReview" value="Deja tu opinión" class="btn btn-primary px-3">
@@ -172,5 +182,40 @@ $resRev = $reviews->listarReviewsId();
                 tabContents[index].classList.add("activo");
             });
         });
+    });
+
+    const etiquetasTraducciones = {
+        es: {
+            <?php
+            $traduccionesEs = [];
+            foreach ($res as $key => $value) {
+                $traduccionesEs[] = '"' . $value['prefijoi_nom'] . '": "' . addslashes($value['nombre_es']) . '",
+                               "' . $value['prefijo_descrip'] . '": "' . addslashes($value['descripcion_es']) . '"';
+            }
+            echo implode(",", $traduccionesEs);
+            ?>
+        },
+        en: {
+            <?php
+            $traduccionesEn = [];
+            foreach ($res as $key => $value) {
+                $traduccionesEn[] = '"' . $value['prefijoi_nom'] . '": "' . addslashes($value['producto']) . '",
+                                "' . $value['prefijo_descrip'] . '": "' . addslashes($value['descripcion']) . '"';
+            }
+            echo implode(",", $traduccionesEn);
+            ?>
+        }
+    };
+
+    document.addEventListener("idiomaCambiado", function(event) {
+        let idioma = event.detail.idioma;
+
+        // Iteramos sobre las claves para actualizar elementos si existen en el DOM
+        for (let key in etiquetasTraducciones[idioma]) {
+            let element = document.getElementById(key);
+            if (element) {
+                element.textContent = etiquetasTraducciones[idioma][key];
+            }
+        }
     });
 </script>

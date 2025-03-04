@@ -5,16 +5,18 @@ class ModeloProducto
     public $tabla = "productos";
     function agregarProductoModelo($dato)
     {
-        $sql = "INSERT INTO $this->tabla(nombre,precio,precio_descuento,cantidad_flores,cantidad,id_categoria) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO $this->tabla(nombre,nombre_es,prefijoi_nom,precio,precio_descuento,cantidad_flores,cantidad,id_categoria) VALUES (?,?,?,?,?,?,?,?)";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
         if ($dato != '') {
             $stms->bindParam(1, $dato['nom'], PDO::PARAM_STR);
-            $stms->bindParam(2, $dato['precio'], PDO::PARAM_INT);
-            $stms->bindParam(3, $dato['precioPromo'], PDO::PARAM_INT);
-            $stms->bindParam(4, $dato['cantiFlores'], PDO::PARAM_INT);
-            $stms->bindParam(5, $dato['cant'], PDO::PARAM_INT);
-            $stms->bindParam(6, $dato['id_categoria'], PDO::PARAM_INT);
+            $stms->bindParam(2, $dato['nom_es'], PDO::PARAM_STR);
+            $stms->bindParam(3, $dato['prefijo_nom'], PDO::PARAM_STR);
+            $stms->bindParam(4, $dato['precio'], PDO::PARAM_INT);
+            $stms->bindParam(5, $dato['precioPromo'], PDO::PARAM_INT);
+            $stms->bindParam(6, $dato['cantiFlores'], PDO::PARAM_INT);
+            $stms->bindParam(7, $dato['cant'], PDO::PARAM_INT);
+            $stms->bindParam(8, $dato['id_categoria'], PDO::PARAM_INT);
         }
         try {
             if ($stms->execute()) {
@@ -76,7 +78,7 @@ class ModeloProducto
 
     function consultarProductoAjaxModelo($dato)
     {
-        $sql = "SELECT *, categoria.nombre AS categoria, productos.nombre AS producto FROM $this->tabla INNER JOIN categoria ON categoria.id_categoria = productos.id_categoria INNER JOIN fotos_producto ON fotos_producto.id_producto = productos.id_producto WHERE productos.nombre like ?";
+        $sql = "SELECT *, categoria.nombre AS categoria, productos.nombre AS producto FROM $this->tabla INNER JOIN categoria ON categoria.id_categoria = productos.id_categoria INNER JOIN descripcion_producto ON descripcion_producto.id_producto = productos.id_producto INNER JOIN fotos_producto ON fotos_producto.id_producto = productos.id_producto WHERE productos.nombre like ?";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
         if ($dato != '') {
@@ -96,17 +98,19 @@ class ModeloProducto
 
     function actualizarProductoModelo($dato)
     {
-        $sql = "UPDATE $this->tabla SET nombre= ?,precio= ?,precio_descuento= ?,cantidad_flores=?,cantidad= ?,id_categoria= ? WHERE id_producto = ?";
+        $sql = "UPDATE $this->tabla SET nombre= ?,nombre_es =?, prefijoi_nom = ?, precio= ?,precio_descuento= ?,cantidad_flores=?,cantidad= ?,id_categoria= ? WHERE id_producto = ?";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
         if ($dato != '') {
             $stms->bindParam(1, $dato['nom'], PDO::PARAM_STR);
-            $stms->bindParam(2, $dato['precio'], PDO::PARAM_INT);
-            $stms->bindParam(3, $dato['precioPromo'], PDO::PARAM_INT);
-            $stms->bindParam(4, $dato['cantiFlores'], PDO::PARAM_INT);
-            $stms->bindParam(5, $dato['cant'], PDO::PARAM_INT);
-            $stms->bindParam(6, $dato['id_categoria'], PDO::PARAM_INT);
-            $stms->bindParam(7, $dato['id'], PDO::PARAM_INT);
+            $stms->bindParam(2, $dato['nom_es'], PDO::PARAM_STR);
+            $stms->bindParam(3, $dato['prefijo_nom'], PDO::PARAM_STR);
+            $stms->bindParam(4, $dato['precio'], PDO::PARAM_INT);
+            $stms->bindParam(5, $dato['precioPromo'], PDO::PARAM_INT);
+            $stms->bindParam(6, $dato['cantiFlores'], PDO::PARAM_INT);
+            $stms->bindParam(7, $dato['cant'], PDO::PARAM_INT);
+            $stms->bindParam(8, $dato['id_categoria'], PDO::PARAM_INT);
+            $stms->bindParam(9, $dato['id'], PDO::PARAM_INT);
         }
         try {
             if ($stms->execute()) {

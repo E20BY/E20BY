@@ -28,10 +28,12 @@ class Ajax
             $dato[] = array(
                 'id' => $value['id_producto'],
                 'label' => $value['producto'],
+                'nom_es' => $value['nombre_es'],
                 'precio' => $value['precio'],
                 'canti_flores' => $value['cantidad_flores'],
                 'cant' => $value['cantidad'],
-                'desc' => $value['precio_descuento'],
+                'desc' => $value['descripcion'],
+                'desc_es' => $value['descripcion_es'],
                 'id_categoria' => $value['id_categoria'],
                 'protada' => $value['foto_protada'],
                 'foto1' => $value['foto1'],

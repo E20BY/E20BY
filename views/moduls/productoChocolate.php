@@ -34,10 +34,10 @@ $reviews->agregarReview();
 
                     <img src="<?php echo $value['foto1'] ?>"
                         alt="<?php echo $value['nombre'] ?>" class="product-img hover-img">
-                    <h2 id="Ramo_de_Rosasu"><?php echo $value['producto'] ?></h2>
+                    <h2 id="<?php echo $value['prefijoi_nom'] ?>"><?php echo $value['producto'] ?></h2>
                     <input type="hidden" name="id" value="<?php echo $value['id_producto'] ?>">
+                    <p id="<?php echo $value['prefijo_descrip'] ?>"><?php echo $value['descripcion'] ?></p>
                     <p>$<?php echo number_format($value['precio'], 2) ?></p>
-                    <p><?php echo $value['descripcion'] ?></p>
                     <div class="contenerdor-botones">
                         <!--<div class="row">
                         <div class="col"><button class="traducible boton-reviews" id="" data-traduccion="botonReviews"><a href="index.php?action=inicio&id=<?php echo $value['id_producto'] ?>">Reviews</a></button></div>
@@ -125,24 +125,39 @@ $reviews->agregarReview();
                 modal.style.display = "none"; // Ocultar el modal si se hace clic fuera de él
             }
         });
-    });
+    });*/
     const etiquetasTraducciones = {
         es: {
-            Ramo_de_Rosas: "Ramo de Rosas",
-            Tulipanes_Elegantes: "Tulipanes Elegantes",
-            Orquídeas_de_Lujo: "Orquídeas de Lujo"
+            <?php
+            $traduccionesEs = [];
+            foreach ($res as $key => $value) {
+                $traduccionesEs[] = '"' . $value['prefijoi_nom'] . '": "' . addslashes($value['nombre_es']) . '",
+                               "' . $value['prefijo_descrip'] . '": "' . addslashes($value['descripcion_es']) . '"';
+            }
+            echo implode(",", $traduccionesEs);
+            ?>
         },
         en: {
-            Ramo_de_Rosas: "Bouquet of Roses",
-            Tulipanes_Elegantes: "Elegant Tulips",
-            Orquídeas_de_Lujo: "Luxury Orchids"
+            <?php
+            $traduccionesEn = [];
+            foreach ($res as $key => $value) {
+                $traduccionesEn[] = '"' . $value['prefijoi_nom'] . '": "' . addslashes($value['producto']) . '",
+                                "' . $value['prefijo_descrip'] . '": "' . addslashes($value['descripcion']) . '"';
+            }
+            echo implode(",", $traduccionesEn);
+            ?>
         }
     };
 
     document.addEventListener("idiomaCambiado", function(event) {
         let idioma = event.detail.idioma;
-        document.getElementById("Ramo_de_Rosas").textContent = etiquetasTraducciones[idioma].Ramo_de_Rosas;
-        document.getElementById("Tulipanes_Elegantes").textContent = etiquetasTraducciones[idioma].Tulipanes_Elegantes;
-        document.getElementById("Orquídeas_de_Lujo").textContent = etiquetasTraducciones[idioma].Orquídeas_de_Lujo;
-    });*/
+
+        // Iteramos sobre las claves para actualizar elementos si existen en el DOM
+        for (let key in etiquetasTraducciones[idioma]) {
+            let element = document.getElementById(key);
+            if (element) {
+                element.textContent = etiquetasTraducciones[idioma][key];
+            }
+        }
+    });
 </script>

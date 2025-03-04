@@ -8,6 +8,8 @@ class ControladorProducto
                 $dato = array(
                     'id' => $_POST['id'],
                     'nom' => $_POST['nombre'],
+                    'nom_es' => $_POST['nombre_es'],
+                    'prefijo_nom' => str_replace(' ', '_', $_POST['nombre_es']),
                     'precio' => str_replace(',', '', $_POST['precio']),
                     'precioPromo' => 0,
                     'cantiFlores' => $_POST['canti_flores'],
@@ -20,7 +22,8 @@ class ControladorProducto
                     $datoInfo = array(
                         'id_producto' => $_POST['id'],
                         'descrip' => $_POST['descrip'],
-                        'infoAdd' => $_POST['infoAdd']
+                        'descrip_es' => $_POST['descrip_es'],
+                        'prefijo_des' => str_replace(' ', '_', $_POST['descrip_es'])
                     );
                     $agregarDescripcion = new ControladorDescripcionProducto();
                     $resDescrip = $agregarDescripcion->actualizarDescripcionProducto($datoInfo);
@@ -76,6 +79,8 @@ class ControladorProducto
             } else {
                 $dato = array(
                     'nom' => $_POST['nombre'],
+                    'nom_es' => $_POST['nombre_es'],
+                    'prefijo_nom' => str_replace(' ', '_', $_POST['nombre_es']),
                     'precio' => str_replace(',', '', $_POST['precio']),
                     'precioPromo' => 0,
                     'cantiFlores' => $_POST['canti_flores'],
@@ -89,7 +94,8 @@ class ControladorProducto
                     $datoInfo = array(
                         'id_producto' => $ultimoId[0]['MAX(id_producto)'],
                         'descrip' => $_POST['descrip'],
-                        'infoAdd' => $_POST['infoAdd']
+                        'descrip_es' => $_POST['descrip_es'],
+                        'prefijo_des' => str_replace(' ', '_', $_POST['descrip_es'])
                     );
                     $agregarDescripcion = new ControladorDescripcionProducto();
                     $resDescrip = $agregarDescripcion->agregarDescripcionProducto($datoInfo);

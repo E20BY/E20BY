@@ -126,12 +126,12 @@ $cart = $carrito->countCarrito();
                 </select>
             </p>
 
-            <p id="opcionLocal">
-                <strong>Dirección:</strong> 1050 Sw 11 street Miami FI 33129 <br>
-                <strong>Teléfono:</strong> +1 (786) 397-4240
+            <p id="opcionLocal" style="text-align: left;">
+                <strong id="dire">Dirección:</strong> 1050 Sw 11 street Miami FI 33129 <br>
+                <strong id="tel">Teléfono:</strong> +1 (786) 397-4240
             </p>
 
-            <p><span>Estimated tax to be collected:</span> <span id="taxes">$0</span></p>
+            <p><span id="tax3">Estimated tax to be collected:</span> <span id="taxes">$0</span></p>
 
             <p>
                 <span id="total">Total:</span>

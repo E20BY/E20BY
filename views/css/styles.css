@@ -431,10 +431,10 @@ header span {
 /* Lista de productos */
 .product-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 40px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+    padding: 20px;
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -444,6 +444,10 @@ header span {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+.product p{
+    font-size: 14px;
 }
 
 .product img {
@@ -562,13 +566,21 @@ tbody td {
     }
 }
 
-@media (max-width: 370px) {
+@media (max-width: 390px) {
     .menu a {
         font-size: 16px;
     }
 
     .product-list {
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .product p{
+        font-size: 9px;
+    }
+
+    .product h2{
+        font-size: 14px;
     }
 
     button,
@@ -676,7 +688,7 @@ tbody td {
 
 .contact-form button,
 .product-filter button {
-    background: #f490c6;
+    background: #ffb6c1;
     color: white;
     border: none;
     cursor: pointer;
@@ -686,7 +698,7 @@ tbody td {
 
 .contact-form button:hover,
 .product-filter button:hover {
-    background: #f490c6;
+    background: #ff7f9e;
 }
 
 /* Botón de WhatsApp */
@@ -913,7 +925,7 @@ tbody td {
 #cart {
     background-color: #ffb6c1;
     color: white;
-    padding: 8px 12px;
+    padding: 8px 10px;
     border-radius: 20px;
     font-size: 15px;
     font-weight: bold;
@@ -930,7 +942,7 @@ tbody td {
 @media (max-width: 401px) and (max-width: 500px) {
     #cart {
         margin-top: 12px;
-        margin-right: 62px;
+        margin-right: 52px;
         font-size: 10px;
     }
 }
@@ -970,7 +982,7 @@ tbody td {
 
 @media (max-width: 401px) and (max-width: 500px) {
     #btnIdioma {
-        margin-right: -5px;
+        margin-right: -8px;
         font-size: 10px;
         margin-top: 3px;
     }
@@ -1248,13 +1260,12 @@ header {
 /* Posiciona los iconos de redes sociales en la parte superior izquierda */
 .social-icons {
     margin-top: 20px;
-    position: fixed;
-    top: 15px;
+    position: absolute;
+    top: 15px; /* Ajusta este valor para alinearlo con el botón "Cart" */
     left: 10px;
     display: flex;
     gap: 10px;
-    z-index: 1000;
-    /* Asegura que esté sobre otros elementos */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
 }
 
 /* Estilos para los iconos */
@@ -1271,6 +1282,8 @@ header {
 .social-icons a:hover {
     background: #ff7f9e;
 }
+
+
 
 @media (max-width: 768px) {
     .social-icons a {
@@ -1462,7 +1475,7 @@ header {
 
 @media (max-width: 401px) and (max-width: 500px) {
     #btnLogin {
-        margin-right: -10px;
+        margin-right: -16px;
         font-size: 10px;
         margin-top: 3px;
     }
@@ -1924,15 +1937,16 @@ header {
 .btn-primary {
     border-radius: 50%;
     padding: 10px 15px;
-    background: linear-gradient(135deg, #ff91c1, #ff5fa8);
+    background: linear-gradient(135deg, #ffb6c1, #ff7f9e);
     border: none;
     font-size: 18px;
     transition: 0.3s ease;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #ff5fa8, #ff91c1);
+    background: linear-gradient(135deg, #ff7f9e, #ffb6c1);
     transform: scale(1.1);
 }
 
@@ -2246,8 +2260,8 @@ header {
 .product-img,
 .hover-img {
     display: block;
-    width: 80%;
-    height: 75%; /* Ajusta según el tamaño deseado */
+    width: 100%;
+    height: 60%; /* Ajusta según el tamaño deseado */
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -2700,7 +2714,11 @@ textarea:focus {
     background: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
-    width: 100%;
+    width: 95%;
+}
+
+.contenido-tab textarea{
+    width: 98%;
 }
 
 /* Estilos de las pestañas */
@@ -2808,7 +2826,7 @@ textarea:focus {
 }
 
 /* ✅ Para móviles ultra pequeños (hasta 300px) */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 390px) {
 
     .imagen-producto img {
         width: 200px;
@@ -2824,10 +2842,27 @@ textarea:focus {
     }
 
     .tabs li {
-        font-size: 10px;
+        font-size: 14px;
         padding: 5px 8px;
     }
+
+    .detalle-inferior {
+        width: 90%;
+    }
+    
+    .contenido-tab textarea{
+        width: 92%;
+    }
+
+    .formulario input{
+        width: 92%;
+    }
+
+    .formulario textarea{
+        width: 82%;
+    }
 }
+
 
 .url {
     text-decoration: underline;
@@ -2859,9 +2894,20 @@ textarea:focus {
     color: #333;
 }
 
-.timecart input,
-.timecart select {
-    width: 95%;
+.timecart input {
+    width: 92%;
+    padding: 10px;
+    border: 2px solid #ff91c1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.timecart select{
+    width: 100%;
     padding: 10px;
     border: 2px solid #ff91c1;
     border-radius: 8px;

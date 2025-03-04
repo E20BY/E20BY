@@ -95,11 +95,12 @@ $("#producto").autocomplete({
         desc = value1; // Puedes cambiar 'kg' por el símbolo que desees
 
         document.querySelector('input[name="id"]').value = ui.item.id;
+        document.querySelector('input[name="nombre_es"]').value = ui.item.nom_es;
         document.querySelector('input[name="precio"]').value = precio;
         document.querySelector('input[name="cant"]').value = ui.item.cant;
         document.querySelector('input[name="canti_flores"]').value = ui.item.canti_flores;
-        document.querySelector('textarea[name="descrip"]').value = ui.item.des;
-        document.querySelector('textarea[name="infoAdd"]').value = ui.item.info;
+        document.querySelector('textarea[name="descrip"]').value = ui.item.desc;
+        document.querySelector('textarea[name="descrip_es"]').value = ui.item.desc_es;
         const id_categoria = document.querySelector('select[name="id_categoria"]');
         id_categoria.value = ui.item.id_categoria;
         document.querySelector('input[name="portadaEdit"]').value = ui.item.protada;
@@ -383,7 +384,7 @@ $(document).ready(function () {
                 success: function (response) {
                     try {
                         var data = JSON.parse(response);  // Intentamos parsear la respuesta JSON
-        
+
                         if (data.success) {
                             console.log('Información actualizada con éxito');
                         } else {
@@ -399,7 +400,7 @@ $(document).ready(function () {
                 }
             });
         }
-        
+
     });
 });
 
@@ -519,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener('click', function () {
             const input = this.closest('.quantity').querySelector('input');
             const carritoId = this.closest('tr').querySelector('.eliminar-button-carrito').getAttribute('data-id');
-            
+
             let cantidadActual = parseInt(input.value) || 0;
 
             // Determinar si es suma o resta
@@ -545,7 +546,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(data => {
                     if (!data.success) {
                         alert('Error al actualizar la cantidad');
-                    }else{
+                    } else {
                         window.location.reload();
                     }
                 })
@@ -562,7 +563,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.btn-sumar, .btn-restar').forEach(button => {
         button.addEventListener('click', function () {
             const input = this.closest('.agregar-carrito').querySelector('input');
-            
+
             let cantidadActual = parseInt(input.value) || 0;
 
             // Determinar si es suma o resta
@@ -593,17 +594,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     // Selecciona todos los elementos con la clase 'product'
-    const productos = document.querySelectorAll(".product-img");
-    const id = document.querySelector('input[name="id"]').value;
+    const productos = document.querySelectorAll(".product");
+
     // Agrega un evento de clic a cada producto
     productos.forEach(producto => {
         producto.addEventListener("click", function () {
-            // Redirige a la página de detalles
+            // Obtiene el ID del producto seleccionado
+            const id = this.querySelector('input[name="id"]').value;
+            // Redirige a la página de detalles con el ID correspondiente
             const url = `index.php?action=detalles&id=${encodeURIComponent(id)}`;
             window.location.href = url;
         });
     });
 });
+
 
 //enviar cantidad y id producto a carrito
 document.getElementById('btnAgregarCarrito').addEventListener('click', function (event) {
@@ -617,10 +621,17 @@ document.getElementById('btnAgregarCarrito').addEventListener('click', function 
     const time = document.querySelector('select[name="hora"]').value.trim();
     const box = document.querySelector('textarea[name="box"]').value.trim();
 
-    // Verificar si algún campo está vacío
-    if (!id || !cantidad || !mess || !date || !time || !box) {
-        alert("Por favor, completa todos los campos antes de continuar.");
-        return; // No redirigir si falta información
+    let missingFields = [];
+
+    // Verificar cada campo y agregar a la lista si está vacío
+    if (!id) missingFields.push("ID");
+    if (!cantidad) missingFields.push("Cant");
+    if (!date) missingFields.push("Date");
+    if (!time) missingFields.push("Time");
+
+    if (missingFields.length > 0) {
+        alert("Please complete the following fields before continuing:\n- " + missingFields.join("\n- "));
+        return; // Detener la ejecución si falta información
     }
 
     // Crear la URL con los parámetros GET

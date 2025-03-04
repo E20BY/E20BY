@@ -77,6 +77,10 @@ $resCat = $cat->agregarCategoria();
                         <input type="text" name="nombre" id="producto" class="form-control" placeholder="Nombre Producto">
                     </div>
                     <div class="col-md-6 form-group">
+                        <label>Nombre_es</label>
+                        <input type="text" name="nombre_es" id="nombre_es" class="form-control" placeholder="Nombre Producto">
+                    </div>
+                    <div class="col-md-6 form-group">
                         <label>Precio</label>
                         <input type="text" name="precio" id="precio_1" class="form-control precio" placeholder="Precio Producto">
                     </div>
@@ -109,8 +113,8 @@ $resCat = $cat->agregarCategoria();
                             <textarea name="descrip" id="" class="form-control"></textarea>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label>Información Adicional</label>
-                            <textarea name="infoAdd" id="" class="form-control"></textarea>
+                            <label>Descripcion_es</label>
+                            <textarea name="descrip_es" id="" class="form-control"></textarea>
                         </div>
                     </div>
                 <h3 class="mt-2">Imagenes</h3>

@@ -73,7 +73,12 @@ const traducciones = {
         infoDes: "Información",
         infoDes1: "Descripción Producto",
         infoDes2: "Información Adicional",
-        metodoentrega: "Selecciona el método de entrega:"
+        metodoentrega: "Selecciona el método de entrega:",
+        dire: "Dirección:",
+        tel: "Telefono:",
+        tax3: "Impuesto estimado a recaudar:",
+        selectdate: "Seleccione una fecha de entrega:",
+        selectime: "Seleccione Hora"
     },
     en: {
         direccionEnvio: "Shipping Address",
@@ -133,8 +138,8 @@ const traducciones = {
         buttonReviews: "Add",
         siguenos: "Follow us on our social media.",
         TuEncabezado: "Please enter a subject",
-        tax1: "Miami dade country $15",
-        tax2: "Broward country $45",
+        tax1: "Miami dade county $15",
+        tax2: "Broward county $45",
         mess: "Card Message:",
         pago: "🔒 Secure online checkout",
         envioseguro: "🚚 Fast shipping",
@@ -146,7 +151,12 @@ const traducciones = {
         infoDes: "Information",
         infoDes1: "Product description",
         infoDes2: "Additional information",
-        metodoentrega: "Select the delivery method:"
+        metodoentrega: "Select the delivery method:",
+        dire: "Address:",
+        tel: "Phone:",
+        tax3: "Estimated tax to be collected:",
+        selectdate: "Select a delivery date:",
+        selectime: "Select Time"
     }
 };
 
@@ -177,6 +187,8 @@ function cambiarIdioma(idioma) {
         document.getElementById("descridetalle").textContent = traducciones[idioma].descridetalle;
         document.getElementById("box1").textContent = traducciones[idioma].box1;
         document.getElementById("box2").textContent = traducciones[idioma].box2;
+        document.getElementById("selectdate").textContent = traducciones[idioma].selectdate;
+        document.getElementById("selectime").textContent = traducciones[idioma].selectime;
     }
 
     if (document.getElementById("direccionEnvio")) {
@@ -197,7 +209,10 @@ function cambiarIdioma(idioma) {
         document.getElementById("realizarPedido").textContent = traducciones[idioma].realizarPedido;
         document.getElementById("tax1").textContent = traducciones[idioma].tax1;
         document.getElementById("tax2").textContent = traducciones[idioma].tax2;
+        document.getElementById("tax3").textContent = traducciones[idioma].tax3;
         document.getElementById("metodoentrega").textContent = traducciones[idioma].metodoentrega;
+        document.getElementById("dire").textContent = traducciones[idioma].dire;
+        document.getElementById("tel").textContent = traducciones[idioma].tel;
     }
 
     if (document.getElementById("selectPreci")) {
@@ -261,7 +276,8 @@ function cambiarIdioma(idioma) {
         TuCorreo: "TuCorreo",
         mensajeTu: "mensajeTu",
         inputCantExam: "inputCantExam",
-        TuEncabezado: "TuEncabezado"
+        TuEncabezado: "TuEncabezado",
+        selectime: "selectime"
     };
 
     for (let key in placeholders) {
