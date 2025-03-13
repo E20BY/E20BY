@@ -37,6 +37,9 @@ class Ajax
                 'id_categoria' => $value['id_categoria'],
                 'protada' => $value['foto_protada'],
                 'foto1' => $value['foto1'],
+                'boxFlower' => $value['box'],
+                'boxColor' => $value['boxColor'],
+                'flowersColor' => $value['flowersColor']
             );
         }
         print json_encode($dato);

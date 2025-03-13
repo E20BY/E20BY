@@ -79,6 +79,8 @@ class ControladorFactura
                 $tarjeta = $mess['mensaje'];
                 $fecha = $mess['fecha'];
                 $hora = $mess['hora'];
+                $boxcolor = $mess['fecha'];
+                $flowerColor = $mess['hora'];
 
                 // Crear el contenido de la factura en HTML
                 $facturaHTML = "
@@ -90,6 +92,8 @@ class ControladorFactura
         <p><strong>Mensaje Tarjeta:</strong> $tarjeta</p>
         <p><strong>Fecha:</strong> $fecha</p>
         <p><strong>Hora:</strong> $hora</p>
+        <p><strong>Caja:</strong> $boxcolor</p>
+        <p><strong>Flores:</strong> $flowerColor</p>
         <hr>
         <h2>Detalles de la Compra</h2>
         <table border='1' cellpadding='10' cellspacing='0'>

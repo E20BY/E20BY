@@ -14,7 +14,10 @@ class ControladorProducto
                     'precioPromo' => 0,
                     'cantiFlores' => $_POST['canti_flores'],
                     'cant' => $_POST['cant'],
-                    'id_categoria' => $_POST['id_categoria']
+                    'id_categoria' => $_POST['id_categoria'],
+                    'boxFlower' => $_POST['boxFlower'],
+                    'box' => $_POST['box'],
+                    'flowersColor' => $_POST['flowersColor']
                 );
                 $agregar = new ModeloProducto();
                 $res = $agregar->actualizarProductoModelo($dato);
@@ -85,7 +88,10 @@ class ControladorProducto
                     'precioPromo' => 0,
                     'cantiFlores' => $_POST['canti_flores'],
                     'cant' => $_POST['cant'],
-                    'id_categoria' => $_POST['id_categoria']
+                    'id_categoria' => $_POST['id_categoria'],
+                    'boxFlower' => $_POST['boxFlower'],
+                    'box' => $_POST['box'],
+                    'flowersColor' => $_POST['flowersColor']
                 );
                 $agregar = new ModeloProducto();
                 $res = $agregar->agregarProductoModelo($dato);

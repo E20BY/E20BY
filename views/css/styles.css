@@ -446,7 +446,7 @@ header span {
     text-align: center;
 }
 
-.product p{
+.product p {
     font-size: 14px;
 }
 
@@ -575,11 +575,11 @@ tbody td {
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
 
-    .product p{
+    .product p {
         font-size: 9px;
     }
 
-    .product h2{
+    .product h2 {
         font-size: 14px;
     }
 
@@ -947,11 +947,27 @@ tbody td {
     }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 390px) {
+    #container-btn{
+        margin-right: 10px;
+    }
+
     #cart {
-        margin-top: 10px;
+        margin-top: 50px;
         font-size: 10px;
-        margin-right: 62px;
+        margin-right: -10px;
+    }
+}
+
+@media (max-width: 380px) {
+    #container-btn{
+        margin-right: 10px;
+    }
+
+    #cart {
+        margin-top: 50px;
+        font-size: 10px;
+        margin-right: -10px;
     }
 }
 
@@ -1013,7 +1029,7 @@ body {
     padding: 15px 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 15px 15px 15px 15px;
-    width: 700px;
+    width: 800px;
     margin: 0 auto;
     /* Esto lo centra */
     justify-content: center;
@@ -1261,11 +1277,13 @@ header {
 .social-icons {
     margin-top: 20px;
     position: absolute;
-    top: 15px; /* Ajusta este valor para alinearlo con el botón "Cart" */
+    top: 15px;
+    /* Ajusta este valor para alinearlo con el botón "Cart" */
     left: 10px;
     display: flex;
     gap: 10px;
-    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    z-index: 1000;
+    /* Asegura que esté sobre otros elementos */
 }
 
 /* Estilos para los iconos */
@@ -1297,6 +1315,34 @@ header {
         font-size: 15px;
         padding: 4px 9px;
         margin-top: -3px;
+    }
+}
+
+@media (max-width: 390px) {
+    .social-icons{
+        margin-top: 20px;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+    .social-icons a {
+        font-size: 15px;
+        padding: 4px 9px;
+        margin-top: -3px;
+        flex: 1;
+    }
+}
+
+@media (max-width: 380px) {
+    .social-icons{
+        margin-top: 15px;
+        flex-direction: column;
+        margin-left: 9px;
+    }
+    .social-icons a {
+        font-size: 15px;
+        padding: 4px 9px;
+        margin-top: -3px;
+        flex: 1;
     }
 }
 
@@ -2259,9 +2305,11 @@ header {
 
 .product-img,
 .hover-img {
+    object-fit: cover;
     display: block;
     width: 100%;
-    height: 60%; /* Ajusta según el tamaño deseado */
+    height: 55%;
+    /* Ajusta según el tamaño deseado */
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -2717,7 +2765,7 @@ textarea:focus {
     width: 95%;
 }
 
-.contenido-tab textarea{
+.contenido-tab textarea {
     width: 98%;
 }
 
@@ -2766,7 +2814,7 @@ textarea:focus {
 }
 
 .cantidad {
-    width: 80px;
+    width: 30px;
     text-align: center;
 }
 
@@ -2849,18 +2897,20 @@ textarea:focus {
     .detalle-inferior {
         width: 90%;
     }
-    
-    .contenido-tab textarea{
+
+    .contenido-tab textarea {
         width: 92%;
     }
 
-    .formulario input{
+    .formulario input {
         width: 92%;
     }
 
-    .formulario textarea{
+    .formulario textarea {
         width: 82%;
     }
+
+
 }
 
 
@@ -2870,8 +2920,10 @@ textarea:focus {
 
 .timecart-container {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
 }
 
 /* Estilos de timecart */
@@ -2884,7 +2936,8 @@ textarea:focus {
     border: 2px solid #ff91c1;
     box-shadow: 0px 4px 10px rgba(255, 128, 0, 0.2);
     max-width: 300px;
-    width: 100%; /* Para que se ajuste mejor en móviles */
+    width: 100%;
+    /* Para que se ajuste mejor en móviles */
     font-family: "Arial", sans-serif;
 }
 
@@ -2906,7 +2959,7 @@ textarea:focus {
     cursor: pointer;
 }
 
-.timecart select{
+.timecart select {
     width: 100%;
     padding: 10px;
     border: 2px solid #ff91c1;
@@ -2964,7 +3017,8 @@ textarea:focus {
     background-color: #ffe6ec;
 }
 
-#opcionEnvio, #opcionLocal {
+#opcionEnvio,
+#opcionLocal {
     display: none;
     margin-top: 10px;
 }

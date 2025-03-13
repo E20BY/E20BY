@@ -107,16 +107,48 @@ $resCat = $cat->agregarCategoria();
                     </div>
                 </div>
                 <h3 class="mt-2">Información del producto</h3>
-                    <div class="row mt-2">
-                        <div class="col-md-6 form-group">
-                            <label>Descripcion</label>
-                            <textarea name="descrip" id="" class="form-control"></textarea>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Descripcion_es</label>
-                            <textarea name="descrip_es" id="" class="form-control"></textarea>
-                        </div>
+                <div class="row mt-2">
+                    <div class="col-md-6 form-group">
+                        <label>Descripcion</label>
+                        <textarea name="descrip" id="" class="form-control"></textarea>
                     </div>
+                    <div class="col-md-6 form-group">
+                        <label>Descripcion_es</label>
+                        <textarea name="descrip_es" id="" class="form-control"></textarea>
+                    </div>
+                </div>
+                <h3 class="mt-2">Información Caja Flores</h3>
+                <div class="row mt-2">
+                    <div class="col-md-6 form-group">
+                        <select name="boxFlower" class="form-control">
+                            <option value="">--Seleccione Caja y Flores--</option>
+
+                            <option value="1">Sin nada</option>
+                            <option value="2">Caja</option>
+                            <option value="3">Flores</option>
+                            <option value="4">Caja y flores</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <select name="box" class="form-control">
+                            <option value="">--Seleccione Caja--</option>
+                            <option value="1">Black</option>
+                            <option value="2">Black, While</option>
+                            <option value="3">Black, While, Pink</option>
+                            <option value="4">Black, While, Pink, Blue</option>
+                            <option value="5">Silver, Gold</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <select name="flowersColor" class="form-control">
+                            <option value="">--Seleccione Flores--</option>
+                            <option value="1">White, pink, lavander</option>
+                            <option value="2">Rosado-blanco, Amarrillo-Naranja</option>
+                            <option value="3">While, purple</option>
+                            <option value="4">Red, White, Pink, Lavander, Yellow, Orange</option>
+                        </select>
+                    </div>
+                </div>
                 <h3 class="mt-2">Imagenes</h3>
                 <div class="row mt-2">
                     <div class="col-md-6 form-group">

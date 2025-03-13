@@ -5,7 +5,7 @@ class ModeloProducto
     public $tabla = "productos";
     function agregarProductoModelo($dato)
     {
-        $sql = "INSERT INTO $this->tabla(nombre,nombre_es,prefijoi_nom,precio,precio_descuento,cantidad_flores,cantidad,id_categoria) VALUES (?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO $this->tabla(nombre,nombre_es,prefijoi_nom,precio,precio_descuento,cantidad_flores,cantidad,id_categoria,box,boxColor,flowersColor) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
         if ($dato != '') {
@@ -17,6 +17,9 @@ class ModeloProducto
             $stms->bindParam(6, $dato['cantiFlores'], PDO::PARAM_INT);
             $stms->bindParam(7, $dato['cant'], PDO::PARAM_INT);
             $stms->bindParam(8, $dato['id_categoria'], PDO::PARAM_INT);
+            $stms->bindParam(9, $dato['boxFlower'], PDO::PARAM_INT);
+            $stms->bindParam(10, $dato['box'], PDO::PARAM_INT);
+            $stms->bindParam(11, $dato['flowersColor'], PDO::PARAM_INT);
         }
         try {
             if ($stms->execute()) {
@@ -47,7 +50,7 @@ class ModeloProducto
 
     function listarProductosModelo()
     {
-        $sql = "SELECT *, categoria.nombre AS categoria, productos.nombre AS producto FROM $this->tabla INNER JOIN descripcion_producto ON descripcion_producto.id_producto = productos.id_producto INNER JOIN categoria ON categoria.id_categoria = productos.id_categoria INNER JOIN fotos_producto ON fotos_producto.id_producto = productos.id_producto ORDER BY `productos`.`precio` ASC";
+        $sql = "SELECT *, categoria.nombre AS categoria, productos.nombre AS producto FROM $this->tabla INNER JOIN descripcion_producto ON descripcion_producto.id_producto = productos.id_producto INNER JOIN categoria ON categoria.id_categoria = productos.id_categoria INNER JOIN fotos_producto ON fotos_producto.id_producto = productos.id_producto ORDER BY `productos`.`id_producto` ASC";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
         try {
@@ -98,7 +101,7 @@ class ModeloProducto
 
     function actualizarProductoModelo($dato)
     {
-        $sql = "UPDATE $this->tabla SET nombre= ?,nombre_es =?, prefijoi_nom = ?, precio= ?,precio_descuento= ?,cantidad_flores=?,cantidad= ?,id_categoria= ? WHERE id_producto = ?";
+        $sql = "UPDATE $this->tabla SET nombre= ?,nombre_es =?, prefijoi_nom = ?, precio= ?,precio_descuento= ?,cantidad_flores=?,cantidad= ?,id_categoria= ?, box = ?, boxColor = ?, flowersColor = ? WHERE id_producto = ?";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
         if ($dato != '') {
@@ -110,7 +113,10 @@ class ModeloProducto
             $stms->bindParam(6, $dato['cantiFlores'], PDO::PARAM_INT);
             $stms->bindParam(7, $dato['cant'], PDO::PARAM_INT);
             $stms->bindParam(8, $dato['id_categoria'], PDO::PARAM_INT);
-            $stms->bindParam(9, $dato['id'], PDO::PARAM_INT);
+            $stms->bindParam(9, $dato['boxFlower'], PDO::PARAM_INT);
+            $stms->bindParam(10, $dato['box'], PDO::PARAM_INT);
+            $stms->bindParam(11, $dato['flowersColor'], PDO::PARAM_INT);
+            $stms->bindParam(12, $dato['id'], PDO::PARAM_INT);
         }
         try {
             if ($stms->execute()) {

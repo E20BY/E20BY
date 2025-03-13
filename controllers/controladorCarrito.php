@@ -30,7 +30,9 @@ class ControladorCarrito
                     'men' => $_GET['mess'],
                     'date' => $_GET['date'],
                     'time' => $_GET['time'],
-                    'box' => $_GET['box']
+                    'box' => $_GET['box'],
+                    'boxName' => $_GET['boxName'],
+                    'flowerName' => $_GET['flowerName']
                 );
                 $mensaje = new ControladorMensaje();
                 $res_mensaje = $mensaje->agregarCarritoMensaje($dato);

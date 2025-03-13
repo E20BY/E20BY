@@ -78,7 +78,15 @@ const traducciones = {
         tel: "Telefono:",
         tax3: "Impuesto estimado a recaudar:",
         selectdate: "Seleccione una fecha de entrega:",
-        selectime: "Seleccione Hora"
+        selectime: "Seleccione Hora",
+        resena: "Deja una reseña",
+        small: "Tu dirección de correo electrónico no será publicada. Los campos obligatorios están marcados con *",
+        message: "Tu opinión *",
+        nombrefor: "Su nombre *",
+        email: "Su correo electrónico *",
+        opinion: "Deja tu opinión",
+        producto: "Producto"
+
     },
     en: {
         direccionEnvio: "Shipping Address",
@@ -144,7 +152,7 @@ const traducciones = {
         pago: "🔒 Secure online checkout",
         envioseguro: "🚚 Fast shipping",
         estamos: "📞 We´re here to help",
-        descridetalle: "We value every detail for our customers. If you have specific requests for your product, please let us know in the recommendations box.Customer satisfaction is our priority.",
+        descridetalle: "We value every detail for our customers. If you have specific requests for your product, please let us know in the recommendations box. <br>Customer satisfaction is our priority.",
         taxescalcu: "Taxes and shipping calculated at checkout.",
         box1: "Recommendation",
         box2: "Recommendation",
@@ -156,7 +164,14 @@ const traducciones = {
         tel: "Phone:",
         tax3: "Estimated tax to be collected:",
         selectdate: "Select a delivery date:",
-        selectime: "Select Time"
+        selectime: "Select Time",
+        resena: "Leave a review*",
+        small: "Your email address will not be published. Required fields are marked *",
+        message: "Your opinion *",
+        nombrefor: "Your name *",
+        email: "Your email *",
+        opinion: "Leave your opinion",
+        producto: "Product"
     }
 };
 
@@ -184,11 +199,25 @@ function cambiarIdioma(idioma) {
         document.getElementById("pago").textContent = traducciones[idioma].pago;
         document.getElementById("envioseguro").textContent = traducciones[idioma].envioseguro;
         document.getElementById("estamos").textContent = traducciones[idioma].estamos;
-        document.getElementById("descridetalle").textContent = traducciones[idioma].descridetalle;
+        document.getElementById("descridetalle").innerHTML = traducciones[idioma].descridetalle;
         document.getElementById("box1").textContent = traducciones[idioma].box1;
         document.getElementById("box2").textContent = traducciones[idioma].box2;
         document.getElementById("selectdate").textContent = traducciones[idioma].selectdate;
         document.getElementById("selectime").textContent = traducciones[idioma].selectime;
+        document.getElementById("resena").innerHTML = traducciones[idioma].resena;
+        document.getElementById("small").textContent = traducciones[idioma].small;
+        document.getElementById("message").textContent = traducciones[idioma].message;
+        document.getElementById("nombrefor").textContent = traducciones[idioma].nombrefor;
+        document.getElementById("email").textContent = traducciones[idioma].email;
+    }
+
+    if (document.getElementById("producto")) {
+        document.getElementById("resena").innerHTML = traducciones[idioma].resena;
+        document.getElementById("small").textContent = traducciones[idioma].small;
+        document.getElementById("message").textContent = traducciones[idioma].message;
+        document.getElementById("nombrefor").textContent = traducciones[idioma].nombrefor;
+        document.getElementById("email").textContent = traducciones[idioma].email;
+        document.getElementById("producto").textContent = traducciones[idioma].producto;
     }
 
     if (document.getElementById("direccionEnvio")) {
@@ -276,8 +305,7 @@ function cambiarIdioma(idioma) {
         TuCorreo: "TuCorreo",
         mensajeTu: "mensajeTu",
         inputCantExam: "inputCantExam",
-        TuEncabezado: "TuEncabezado",
-        selectime: "selectime"
+        TuEncabezado: "TuEncabezado"
     };
 
     for (let key in placeholders) {
@@ -286,6 +314,19 @@ function cambiarIdioma(idioma) {
             input.placeholder = traducciones[idioma][placeholders[key]];
         }
     }
+
+    // Cambiar valores de los inputs
+    const valores = {
+        opinion: "opinion"
+    };
+
+    for (let key in valores) {
+        let input = document.getElementById(key);
+        if (input) {
+            input.value = traducciones[idioma][valores[key]];
+        }
+    }
+
 
     document.dispatchEvent(new CustomEvent("idiomaCambiado", { detail: { idioma } }));
 }

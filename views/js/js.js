@@ -103,10 +103,51 @@ $("#producto").autocomplete({
         document.querySelector('textarea[name="descrip_es"]').value = ui.item.desc_es;
         const id_categoria = document.querySelector('select[name="id_categoria"]');
         id_categoria.value = ui.item.id_categoria;
+        const boxFlower = document.querySelector('select[name="boxFlower"]');
+        boxFlower.value = ui.item.boxFlower;
+        const boxColor = document.querySelector('select[name="box"]');
+        boxColor.value = ui.item.boxColor;
+        const flowersColor = document.querySelector('select[name="flowersColor"]');
+        flowersColor.value = ui.item.flowersColor;
         document.querySelector('input[name="portadaEdit"]').value = ui.item.protada;
         document.querySelector('input[name="foto1Edit"]').value = ui.item.foto1;
         document.getElementById('uploadPreview1').src = ui.item.protada;
         document.getElementById('uploadPreview2').src = ui.item.foto1;
+        return false;
+    }
+
+});
+
+//Autocomplete
+$("#pro").autocomplete({
+    source: function (request, response) {
+        $.ajax({
+            url: 'views/ajax.php',
+            type: 'get',
+            dataType: 'json',
+            data: { producto: request.term },
+            success: function (data) {
+                response(data);
+                //console.log("el dato", data);
+
+            }
+
+        });
+    },
+    minLength: 1,
+    select: function (event, ui) {
+        $(this).val(ui.item.label);
+        value = ui.item.precio;
+
+        // Agregar el símbolo de la moneda o unidad
+        precio = value; // Puedes cambiar 'kg' por el símbolo que desees
+        value1 = ui.item.desc;
+
+        // Agregar el símbolo de la moneda o unidad
+        desc = value1; // Puedes cambiar 'kg' por el símbolo que desees
+
+        document.querySelector('input[name="id"]').value = ui.item.id;
+        document.getElementById('producto-img').src = ui.item.protada;
         return false;
     }
 
@@ -620,6 +661,15 @@ document.getElementById('btnAgregarCarrito').addEventListener('click', function 
     const date = document.querySelector('input[name="fecha"]').value.trim();
     const time = document.querySelector('select[name="hora"]').value.trim();
     const box = document.querySelector('textarea[name="box"]').value.trim();
+    // Obtener el color y el nombre del color de la caja
+    const selectedBox = document.querySelector('.boxColor.active');
+    const boxColor = selectedBox ? selectedBox.dataset.color : '';
+    const boxColorName = selectedBox ? selectedBox.textContent.trim() : '';
+
+    // Obtener el color y el nombre del color de la flor
+    const selectedFlower = document.querySelector('.flowerCol.active');
+    const flowerColor = selectedFlower ? selectedFlower.dataset.color : '';
+    const flowerColorName = selectedFlower ? selectedFlower.textContent.trim() : '';
 
     let missingFields = [];
 
@@ -635,7 +685,7 @@ document.getElementById('btnAgregarCarrito').addEventListener('click', function 
     }
 
     // Crear la URL con los parámetros GET
-    const url = `index.php?action=cart&id=${encodeURIComponent(id)}&cant=${encodeURIComponent(cantidad)}&mess=${encodeURIComponent(mess)}&date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}&box=${encodeURIComponent(box)}`;
+    const url = `index.php?action=cart&id=${encodeURIComponent(id)}&cant=${encodeURIComponent(cantidad)}&mess=${encodeURIComponent(mess)}&date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}&box=${encodeURIComponent(box)}&boxName=${encodeURIComponent(boxColorName)}&flowerName=${encodeURIComponent(flowerColorName)}`;
 
     // Redirigir al usuario
     window.location.href = url;

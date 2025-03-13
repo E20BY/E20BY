@@ -45,6 +45,7 @@ $resReviews = $reviews->listarReviewsInfo();
     <a href="productoChocolate" id="menuchocolate">Chocolate covered strawberries</a>
     <a href="cart" id="menuCarrito">Cart</a>
     <a href="contacto" id="menuContacto">Contact</a>
+    <a href="review" id="">Reviews</a>
     <?php
     if (isset($_SESSION['validarPagina'])) {
     ?>

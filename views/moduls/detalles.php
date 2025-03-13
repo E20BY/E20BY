@@ -46,6 +46,66 @@ $resRev = $reviews->listarReviewsId();
             /* Evita que se reduzcan demasiado */
         }
     }
+
+    .color-selection {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .color-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .color-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        /* 🖥 6 columnas en pantallas grandes */
+        gap: 8px;
+    }
+
+    .color-btn {
+        border: 1px solid #ccc;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+        min-width: 80px;
+        text-align: center;
+    }
+
+    .color-btn.active {
+        background-color: #ff7f9e;
+        color: white;
+    }
+
+    /* 📱 Pantallas medianas (tablets) */
+    @media (max-width: 1024px) {
+        .color-grid {
+            grid-template-columns: repeat(4, 1fr);
+            /* 🔹 4 columnas */
+        }
+    }
+
+    /* 📱 Pantallas pequeñas (celulares) */
+    @media (max-width: 768px) {
+        .color-grid {
+            grid-template-columns: repeat(5, 1fr);
+            /* 🔹 3 columnas */
+        }
+    }
+
+    /* 📱 Pantallas muy pequeñas */
+    @media (max-width: 480px) {
+        .color-grid {
+            grid-template-columns: repeat(4, 1fr);
+            /* 🔹 2 columnas */
+        }
+    }
 </style>
 <section class="detalle-producto">
     <div class="contenedor-producto">
@@ -58,6 +118,176 @@ $resRev = $reviews->listarReviewsId();
             <p class="descripcion">
             <p id="<?php echo $res[0]['prefijo_descrip'] ?>"><?php echo $res[0]['descripcion'] ?></span></p>
             </p>
+
+            <?php
+            if ($res[0]['box'] != 1) {
+            ?>
+
+                <!--Aqui nuevos botones-->
+                <div class="color-selection">
+                    <!-- 📍 Selección de Box Color -->
+                    <?php
+                    if ($res[0]['box'] == 2) {
+                    ?>
+                        <div class="color-row">
+                            <p><strong>Box Color:</strong> <span id="selected-box-color"></span></p>
+                            <div class="color-grid" id="box-colors">
+                                <?php
+                                if ($res[0]['boxColor'] == 1) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Black">Black</button>
+                                <?php
+                                } elseif ($res[0]['boxColor'] == 2) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Black">Black</button>
+                                    <button class="color-btn boxColor" data-color="White">White</button>
+                                <?php
+                                } elseif ($res[0]['boxColor'] == 3) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Black">Black</button>
+                                    <button class="color-btn boxColor" data-color="White">White</button>
+                                    <button class="color-btn boxColor" data-color="Pink">Pink</button>
+                                <?php
+                                } elseif ($res[0]['boxColor'] == 4) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Black">Black</button>
+                                    <button class="color-btn boxColor" data-color="White">White</button>
+                                    <button class="color-btn boxColor" data-color="Pink">Pink</button>
+                                    <button class="color-btn boxColor" data-color="Blue">Blue</button>
+                                <?php
+                                } elseif ($res[0]['boxColor'] == 5) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Silver">Silver</button>
+                                    <button class="color-btn boxColor" data-color="Gold">Gold</button>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if ($res[0]['box'] == 3) {
+                    ?>
+                        <!-- 📍 Selección de Flower Color -->
+                        <div class="color-row">
+                            <p><strong>Flower Color:</strong> <span id="selected-flower-color"></span></p>
+                            <div class="color-grid" id="flower-colors">
+                                <?php
+                                if ($res[0]['flowersColor'] == 1) {
+                                ?>
+
+                                    <button class="color-btn active flowerCol" data-color="White">White</button>
+                                    <button class="color-btn flowerCol" data-color="Pink">Pink</button>
+                                    <button class="color-btn flowerCol" data-color="Lavander">Lavander</button>
+                                <?php
+                                } elseif ($res[0]['flowersColor'] == 2) {
+                                ?>
+                                    <button class="color-btn active flowerCol" data-color="Rosado-blanco">Rosado-blanco</button>
+                                    <button class="color-btn flowerCol" data-color="Amarrillo-Naranja">Amarrillo-Naranja</button>
+                                <?php
+                                } elseif ($res[0]['flowersColor'] == 3) {
+                                ?>
+                                    <button class="color-btn flowerCol active" data-color="White">White</button>
+                                    <button class="color-btn flowerCol" data-color="purple">Purple</button>
+                                <?php
+                                } elseif ($res[0]['flowersColor'] == 4) {
+                                ?>
+                                    <button class="color-btn active flowerCol" data-color="Red">Red</button>
+                                    <button class="color-btn flowerCol" data-color="White">White</button>
+                                    <button class="color-btn flowerCol" data-color="Pink">Pink</button>
+                                    <button class="color-btn flowerCol" data-color="Lavander">Lavander</button>
+                                    <button class="color-btn flowerCol" data-color="Yellow">Yellow</button>
+                                    <button class="color-btn flowerCol" data-color="Orange">Orange</button>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if ($res[0]['box'] == 4) {
+                    ?>
+                        <div class="color-row">
+                            <p><strong>Box Color:</strong> <span id="selected-box-color"></span></p>
+                            <div class="color-grid" id="flower-colors">
+                                <?php
+                                if ($res[0]['boxColor'] == 1) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Black">Black</button>
+                                <?php
+                                } elseif ($res[0]['boxColor'] == 2) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Black">Black</button>
+                                    <button class="color-btn boxColor" data-color="White">White</button>
+                                <?php
+                                } elseif ($res[0]['boxColor'] == 3) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Black">Black</button>
+                                    <button class="color-btn boxColor" data-color="White">White</button>
+                                    <button class="color-btn boxColor" data-color="Pink">Pink</button>
+                                <?php
+                                } elseif ($res[0]['boxColor'] == 4) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Black">Black</button>
+                                    <button class="color-btn boxColor" data-color="White">White</button>
+                                    <button class="color-btn boxColor" data-color="Pink">Pink</button>
+                                    <button class="color-btn boxColor" data-color="Blue">Blue</button>
+                                    <?php
+                                } elseif ($res[0]['boxColor'] == 5) {
+                                ?>
+                                    <button class="color-btn active boxColor" data-color="Silver">Silver</button>
+                                    <button class="color-btn boxColor" data-color="Gold">Gold</button>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <!-- 📍 Selección de Flower Color -->
+                        <div class="color-row">
+                            <p><strong>Flower Color:</strong> <span id="selected-flower-color"></span></p>
+                            <div class="color-grid" id="flower-colors">
+                                <?php
+                                if ($res[0]['flowersColor'] == 1) {
+                                ?>
+                                    <button class="color-btn active flowerCol" data-color="White">White</button>
+                                    <button class="color-btn flowerCol" data-color="Pink">Pink</button>
+                                    <button class="color-btn flowerCol" data-color="Lavander">Lavander</button>
+                                <?php
+                                } elseif ($res[0]['flowersColor'] == 2) {
+                                ?>
+                                    <button class="color-btn active flowerCol" data-color="Rosado-blanco">Rosado-blanco</button>
+                                    <button class="color-btn flowerCol" data-color="Amarrillo-Naranja">Amarrillo-Naranja</button>
+                                <?php
+                                } elseif ($res[0]['flowersColor'] == 3) {
+                                ?>
+                                    <button class="color-btn flowerCol active" data-color="White">White</button>
+                                    <button class="color-btn flowerCol" data-color="purple">Purple</button>
+                                <?php
+                                } elseif ($res[0]['flowersColor'] == 4) {
+                                ?>
+                                    <button class="color-btn active flowerCol" data-color="Red">Red</button>
+                                    <button class="color-btn flowerCol" data-color="White">White</button>
+                                    <button class="color-btn flowerCol" data-color="Pink">Pink</button>
+                                    <button class="color-btn flowerCol" data-color="Lavander">Lavander</button>
+                                    <button class="color-btn flowerCol" data-color="Yellow">Yellow</button>
+                                    <button class="color-btn flowerCol" data-color="Orange">Orange</button>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            <?php
+            }
+            ?>
+            <br>
             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
             <div class="agregar-carrito">
                 <button class="btn-restar">-</button>
@@ -139,23 +369,23 @@ $resRev = $reviews->listarReviewsId();
                     </div>
 
                     <div class="col-md-6 formulario">
-                        <h4 class="mb-4">Deja una reseña</h4>
+                        <h4 class="mb-4" id="resena">Deja una reseña</h4>
                         <small id="small">Tu dirección de correo electrónico no será publicada. Los campos obligatorios están marcados con *</small>
                         <form method="post">
                             <div class="form-group">
-                                <label for="message">Tu opinión *</label>
-                                <textarea id="message" required name="message" cols="30" rows="5" class="form-control"></textarea>
+                                <label for="message" id="message">Tu opinión *</label>
+                                <textarea  required name="message" cols="30" rows="5" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="name">Su nombre *</label>
+                                <label for="name" id="nombrefor">Su nombre *</label>
                                 <input type="text" required class="form-control" name="name" id="name">
                             </div>
                             <div class="form-group">
-                                <label for="email">Su correo electrónico *</label>
-                                <input type="email" required class="form-control" name="email" id="email">
+                                <label for="email" id="email">Su correo electrónico *</label>
+                                <input type="email" required class="form-control" name="email">
                             </div>
                             <div class="form-group mb-0">
-                                <input type="submit" name="agregarReview" value="Deja tu opinión" class="btn btn-primary px-3">
+                                <input type="submit" name="agregarReview" value="Deja tu opinión" id="opinion" class="btn btn-primary px-3">
                             </div>
                         </form>
                     </div>
@@ -167,6 +397,23 @@ $resRev = $reviews->listarReviewsId();
 
 </section>
 <script>
+
+    document.querySelectorAll('.boxColor').forEach(button => {
+        button.addEventListener('click', function() {
+            document.querySelectorAll('.boxColor').forEach(btn => btn.classList.remove('active')); // Quitar active de todos
+            this.classList.add('active'); // Agregar active al seleccionado
+            //document.getElementById('selected-box-color').textContent = this.dataset.color; // Actualizar texto
+        });
+    });
+
+    document.querySelectorAll('.flowerCol').forEach(button => {
+        button.addEventListener('click', function() {
+            document.querySelectorAll('.flowerCol').forEach(btn => btn.classList.remove('active')); // Quitar active de todos
+            this.classList.add('active'); // Agregar active al seleccionado
+            //document.getElementById('selected-flower-color').textContent = this.dataset.color; // Actualizar texto
+        });
+    });
+
     document.addEventListener("DOMContentLoaded", function() {
         const tabs = document.querySelectorAll(".tabs li");
         const tabContents = document.querySelectorAll(".contenido-tab");

@@ -5,7 +5,7 @@ class ModeloMensaje
     public $tabla = "mensaje_carta";
     function agregarCarritoMensajeModelo($dato)
     {
-        $sql = "INSERT INTO $this->tabla(id_carrito,token,mensaje,fecha,hora,box) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO $this->tabla(id_carrito,token,mensaje,fecha,hora,box,boxColor,flowerColor) VALUES (?,?,?,?,?,?,?,?)";
         $conn = new Conexion();
         $stms = $conn->conectar()->prepare($sql);
         if ($dato != '') {
@@ -15,6 +15,8 @@ class ModeloMensaje
             $stms->bindParam(4, $dato['date'], PDO::PARAM_STR);
             $stms->bindParam(5, $dato['time'], PDO::PARAM_STR);
             $stms->bindParam(6, $dato['box'], PDO::PARAM_STR);
+            $stms->bindParam(7, $dato['boxName'], PDO::PARAM_STR);
+            $stms->bindParam(8, $dato['flowerName'], PDO::PARAM_STR);
         }
         try {
             if ($stms->execute()) {
